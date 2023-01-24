@@ -34,7 +34,7 @@ export const addFavorite = ({
 });
 export const createGame = (game) => async (dispatch) => {
   try {
-    const response = await axios.post('http://localhost:3001/videogames', game);
+    const response = await axios.post('/videogames', game);
 
     return typeof response.data !== 'string'
       ? dispatch({ type: CREATE_VIDEOGAME, payload: response.data })
@@ -46,7 +46,7 @@ export const createGame = (game) => async (dispatch) => {
 
 export const getGames = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3001/videogames');
+    const response = await axios.get('/videogames');
     dispatch({ type: GET_GAMES, payload: response.data });
   } catch (error) {
     return error.message;
@@ -54,7 +54,7 @@ export const getGames = () => async (dispatch) => {
 };
 export const getGenres = () => async (dispatch) => {
   try {
-    const response = await axios.get('http://localhost:3001/genres');
+    const response = await axios.get('/genres');
     dispatch({ type: GET_GENRES, payload: response.data });
   } catch (error) {
     return error.message;
@@ -63,7 +63,7 @@ export const getGenres = () => async (dispatch) => {
 export const getGamesByName = (word) => async (dispatch) => {
   try {
     const response = await axios.get(
-      `http://localhost:3001/videogames?name=${word}`);
+      `/videogames?name=${word}`);
     dispatch({ type: GET_GAMES_BY_NAME, payload: response.data });
   } catch (error) {
     return error.message;

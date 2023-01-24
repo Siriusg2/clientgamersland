@@ -14,7 +14,7 @@ const Detail = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          `http://localhost:3001/videogames/${cardName.id}`
+          `/videogames/${cardName.id}`
         );
         const char = response.data;
         if (char.id) {
