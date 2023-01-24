@@ -1,0 +1,54 @@
+.filterOptions {
+  justify-self: flex-end;
+  align-self: flex-end;
+  display: flex;
+  flex-direction: row wrap;
+  width: 70vw;
+  justify-content: space-between;
+}
+
+.selectGender {
+  font-weight: bolder;
+  font-size: 1.2vw;
+  font-style: oblique;
+  height: 3vw;
+  width: 10vw;
+  background-color: rgb(246, 136, 9);
+  border-radius: 5px;
+  color: white;
+  box-shadow: 1px 1px 10px 1px rgb(246, 136, 9);
+  text-align: center;
+}
+
+.selectId {
+  font-style: oblique;
+  font-weight: bolder;
+  font-size: 1.2vw;
+  height: 3vw;
+  width: 10vw;
+  background-color: rgb(8, 194, 8);
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  box-shadow: 1px 1px 10px 1px rgb(8, 194, 8);
+}
+
+.labelId {
+  font-style: oblique;
+  color: rgb(8, 194, 8);
+  align-self: center;
+  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+  font-weight: bolder;
+  font-size: 1.8vw;
+}
+
+.labelgender {
+  font-style: oblique;
+  font-weight: bolder;
+  color: rgb(246, 136, 9);
+  align-self: center;
+  font-size: 1.8vw;
+  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 1px 1px #fff,
+    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+}

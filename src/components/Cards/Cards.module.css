@@ -1,0 +1,38 @@
+.divCards {
+  display: grid;
+  grid-template-columns: repeat(5, 20%);
+  grid-gap: 16px;
+  grid-auto-rows: minmax(200px, auto);
+  justify-items: center;
+  margin-top: 15vw;
+  border: 5px solid red;
+}
+
+@media (max-width: 992px) {
+  .divCards {
+    grid-template-columns: repeat(3, 30%);
+  }
+}
+
+@media (max-width: 768px) {
+  .divCards {
+    grid-template-columns: repeat(2, 48%);
+  }
+}
+
+@media (max-width: 576px) {
+  .divCards {
+    grid-template-columns: repeat(1, 100%);
+    grid-auto-rows: minmax(150px, auto);
+  }
+}
+
+.ops,
+.welcome,
+.pageBunttons {
+  color: red;
+}
+
+.pageBunttons {
+  font-size: 3vw;
+}

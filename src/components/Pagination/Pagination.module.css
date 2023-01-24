@@ -1,0 +1,41 @@
+.pagdiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ul {
+  display: flex;
+  flex-direction: row;
+}
+
+li {
+  list-style: none;
+  margin: 20px;
+  width: 40px;
+}
+
+.pagbtn {
+  font-family: "Press Start 2P";
+  font-size: larger;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: coral;
+  color: black;
+}
+
+.pagbt {
+  font-family: "Press Start 2P";
+  font-size: larger;
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  background-color: black;
+  color: coral;
+}
+
+.pagbtn:hover {
+  background-color: black;
+  color: coral;
+}

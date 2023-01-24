@@ -1,0 +1,308 @@
+.divCard {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 5px 3px 15px 10px rgb(246, 136, 9);
+  width: 18vw;
+  height: 48vh;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  /* opacity: .6; */
+  position: relative;
+  transition: 700ms;
+}
+
+@media (max-width: 992px) {
+  .divCard {
+    width: 28%;
+    height: 60%;
+  }
+}
+
+@media (max-width: 768px) {
+  .divCard {
+    width: 40%;
+    height: 70%;
+  }
+}
+
+@media (max-width: 576px) {
+  .divCard {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+}
+
+.welcome {
+  padding-top: 1000px;
+}
+
+/* .divCard:hover {
+    opacity: 1;
+    transition: 700ms;
+    box-shadow: 5px 3px 15px 10px rgb(8, 194, 8);
+    animation-name: logoAnimation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+} */
+
+.imgCard {
+  height: 70%;
+  width: 16vw;
+  border-radius: 20px;
+  align-self: center;
+  box-shadow: 2px 2px 20px 2px black;
+  margin-top: 20px;
+}
+
+@media (max-width: 992px) {
+  .imgCard {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .imgCard {
+    width: 90%;
+  }
+}
+
+@media (max-width: 576px) {
+  .imgCard {
+    width: 100%;
+    height: auto;
+    border-radius: 0;
+  }
+}
+
+.firstText {
+  color: white;
+  opacity: 1;
+  background-color: rgb(246, 136, 9);
+  font-size: 1.2vw;
+  position: absolute;
+  top: 16vw;
+  font-size: 1vw;
+  left: 0.8vw;
+
+  text-decoration: underline;
+  text-decoration: underline;
+  align-content: center;
+  border-radius: 25px;
+  padding: 0.2vw;
+}
+
+@media (max-width: 992px) {
+  .firstText {
+    top: 20%;
+    left: 1%;
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .firstText {
+    top: 25%;
+    left: 1%;
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .firstText {
+    top: 30%;
+    left: 1%;
+    font-size: 2.5vw;
+  }
+}
+
+.firstText:hover {
+  opacity: 1;
+  color: rgb(246, 136, 9);
+  background-color: rgb(8, 194, 8);
+  transition: 200ms;
+  text-decoration: none;
+}
+
+.secondText {
+  position: relative;
+  right: 5vw;
+  color: rgb(246, 136, 9);
+  font-style: italic;
+  justify-content: flex-end;
+  font-size: 1.2vw;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .secondText {
+    font-size: 1.5vw;
+    right: 3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .secondText {
+    font-size: 2vw;
+    right: 2%;
+  }
+}
+
+@media (max-width: 576px) {
+  .secondText {
+    font-size: 2.5vw;
+    right: 1%;
+  }
+}
+
+.thirdText {
+  font-size: 1.2vw;
+  position: relative;
+  bottom: 2.5vw;
+  left: 5vw;
+  color: rgb(246, 136, 9);
+  font-style: italic;
+  font-weight: bold;
+}
+
+@media (max-width: 992px) {
+  .thirdText {
+    font-size: 1.5vw;
+    left: 3%;
+    bottom: 3%;
+  }
+}
+
+@media (max-width: 768px) {
+  .thirdText {
+    font-size: 2vw;
+    left: 2%;
+    bottom: 2%;
+  }
+}
+
+@media (max-width: 576px) {
+  .thirdText {
+    font-size: 2.5vw;
+    left: 1%;
+    bottom: 1%;
+  }
+}.idCharacterText {
+  color: rgb(8, 194, 8);
+  font-weight: bolder;
+  bottom: 26.5vw;
+  position: relative;
+  font-size: 1.2vw;
+  width: 5vw;
+  left: 6.5vw;
+}
+
+@media (max-width: 992px) {
+  .idCharacterText {
+    bottom: 30%;
+    left: 2%;
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .idCharacterText {
+    bottom: 35%;
+    left: 1%;
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .idCharacterText {
+    bottom: 40%;
+    left: 1%;
+    font-size: 2.5vw;
+  }
+}
+
+.buttonClose {
+  color: white;
+  align-items: center;
+  background-color: red;
+  position: absolute;
+  left: 15vw;
+  top: 0.6vw;
+  border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+  .buttonClose {
+    left: 12%;
+    top: 1%;
+  }
+}
+
+@media (max-width: 768px) {
+  .buttonClose {
+    left: 10%;
+    top: 1%;
+  }
+}
+
+@media (max-width: 576px) {
+  .buttonClose {
+    left: 8%;
+    top: 1%;
+  }
+}
+
+.buttonClose:hover {
+  box-shadow: 1px 1px 1px 2px black;
+  transition: 200ms;
+}
+
+.buttonFav {
+  font-size: 1.3vw;
+  background-color: transparent;
+  position: relative;
+  border: transparent;
+  right: 7vw;
+  top: 0.5vw;
+}
+
+@media (max-width: 992px) {
+  .buttonFav {
+    right: 5%;
+    top: 1%;
+    font-size: 1.5vw;
+  }
+}
+
+@media (max-width: 768px) {
+  .buttonFav {
+    right: 3%;
+    top: 1%;
+    font-size: 2vw;
+  }
+}
+
+@media (max-width: 576px) {
+  .buttonFav {
+    right: 2%;
+    top: 1%;
+    font-size: 2.5vw;
+  }
+}
+
+.buttonFav:hover {
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 50%;
+  transition: 400ms;
+}
+
+.buttonFav:hover {
+  box-shadow: 2px 2px 2px 2px black;
+  border-radius: 50%;
+  transition: 400ms;
+}
