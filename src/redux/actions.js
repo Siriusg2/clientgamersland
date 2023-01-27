@@ -25,7 +25,7 @@ export const createGame = (game) => async (dispatch) => {
       ? dispatch({ type: CREATE_VIDEOGAME, payload: response.data })
       : response.data;
   } catch (error) {
-    return error.message;
+    alert(error.message);
   }
 };
 
@@ -34,7 +34,7 @@ export const getGames = () => async (dispatch) => {
     const response = await axios.get('/videogames');
     dispatch({ type: GET_GAMES, payload: response.data });
   } catch (error) {
-    return error.message;
+    alert(error.message);
   }
 };
 export const getGenres = () => async (dispatch) => {
@@ -42,7 +42,7 @@ export const getGenres = () => async (dispatch) => {
     const response = await axios.get('/genres');
     dispatch({ type: GET_GENRES, payload: response.data });
   } catch (error) {
-    return error.message;
+    alert(error.message);
   }
 };
 export const getGamesByName = (word) => async (dispatch) => {
@@ -51,7 +51,7 @@ export const getGamesByName = (word) => async (dispatch) => {
       `/videogames?name=${word}`);
     dispatch({ type: GET_GAMES_BY_NAME, payload: response.data });
   } catch (error) {
-    return error.message;
+    alert(error.message);
   }
 };
 
