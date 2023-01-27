@@ -68,12 +68,12 @@
 
 }
 .label {
-  color: white;
+  color: black;
   font-family: 'Press Start 2p';
   font-size: .6rem;
   text-align: center;
   line-height:1.5;
-  text-shadow: -.1vw -.1vw black, .1vw .1vw black;
+  /* text-shadow: -.1vw -.1vw black, .1vw .1vw black; */
 position: absolute;
 left: .5rem;
 top: 12rem

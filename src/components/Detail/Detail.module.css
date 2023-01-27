@@ -62,22 +62,22 @@ align-self: flex-end;
 
 p {
   font-family: 'Press Start 2p'; 
-  color: gray;
+  color: black;
   line-height: 1.2;
   font-size: .6rem;
   line-height: 1.5;
   padding: 1rem;
-  text-shadow: -.1vw -.1vw white, .1vw .1vw black;
+  /* text-shadow: -.1vw -.1vw white, .1vw .1vw black; */
 }
 
 .h3Info {
 
   font-family: 'Press Start 2p'; 
-  color: gray;
+  color: black;
   line-height: 1.2;
   font-size: .6rem;
   opacity: 1;
-  text-shadow: -.1vw -.1vw white, .1vw .1vw black;
+  /* text-shadow: -.1vw -.1vw white, .1vw .1vw black; */
 }
 
 .label {
