@@ -2,72 +2,37 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Card.module.css";
 import { addFavorite, removeFavorite } from "../../redux/actions";
-import { useState, useEffect } from "react";
-import { connect, useDispatch } from "react-redux";
+
+import { connect } from "react-redux";
+
 
 function Card(props) {
-  const [isFav, setIsFav] = useState(false);
-  const dispatch = useDispatch();
-  const handleFavorite = () => {
-    if (isFav === false) {
-      setIsFav(true);
-      props.addFavorite({
-        name: props.name,
-        genres: props.genres,
 
-        image: props.image,
-      });
-    } else {
-      setIsFav(false);
-      props.removeFavorite(props.id);
-    }
-  };
 
-  useEffect(() => {
-    props.myFavorites.forEach((fav) => {
-      if (fav.id === props.id) {
-        setIsFav(true);
-      }
-    });
-  }, [props.myFavorites, props.id]);
-  return (
+
+  return ( <NavLink to={`/detail/${props.id}`} style={{textDecoration:'none'}}>
     <div className={styles.divCard}>
-      {isFav ? (
-        <button onClick={handleFavorite} className={styles.buttonFav}>
-          ⭐
-        </button>
-      ) : (
-        <button onClick={handleFavorite} className={styles.buttonFav}>
-          ✰
-        </button>
-      )}
+      
 
       <img className={styles.imgCard} src={props.image} alt="" />
 
-      <NavLink to={`/detail/${props.id}`}>
-        <h2 className={styles.firstText}>{props.name}</h2>
-      </NavLink>
-
-      <h2 className={styles.thirdText}>{props.genres}</h2>
-    </div>
+     
+        <span className={styles.label }>{props.name}</span>
+     
+<label className={styles.genres}>Genres:</label><div className={styles.divGeres}>
+      {props.genres?.map((string, index) => (
+              <span key={index} className={styles.span}>
+                 {string} 
+                {index !== props.genres.length - 1 ? " " : ""}
+              </span> 
+            ))}</div>
+     
+    </div> </NavLink>
   );
 }
 
-export const mapStateToProps = (state) => {
-  return {
-    ...state,
-    myFavorites: [...state.myFavorites],
-    allMyFavorites: [...state.allMyFavorites],
-  };
-};
 
-export const mapDispatchToProps = (dispatch) => {
-  return {
-    addFavorite: (id) => dispatch(addFavorite(id)),
-    removeFavorite: (id) => dispatch(removeFavorite(id)),
-  };
-};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Card);
+export default Card;
 // eslint-disable-next-line linebreak-style
 /* eslint-enable */

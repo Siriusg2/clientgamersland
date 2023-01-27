@@ -1,109 +1,108 @@
 /* eslint-disable */
-
-import React from "react";
-
 import styles from "./Navbar.module.css";
 import { NavLink, useLocation } from "react-router-dom";
-import { unActivestyle, unActivestyleLogout } from "./NavStyles.js";
 
 function Navbar(props) {
   const location = useLocation();
 
   if (location.pathname === "/home") {
     return (
-      <div className={styles.divBar}>
-        <div className={styles.logoutButton}>
-          <NavLink to="/" style={unActivestyleLogout}>
-            Logout
+      <div className={styles.container}>
+        <div className={styles.divButton}>
+          <NavLink to="/">
+            <button className={styles.buttonReset}>
+            To landing</button>
           </NavLink>
         </div>
 
-        <div className={styles.favoritesButtonHome}>
-          <NavLink to="/create" style={unActivestyle}>
-            Create Game
+        <div className={styles.divButton}>
+          <NavLink to="/create">
+          <button className={styles.button}>
+            Create Game</button>
           </NavLink>
         </div>
-        <div className={styles.aboutButtonHome}>
-          <NavLink to="/about" style={unActivestyle}>
-            About
+        <div className={styles.divButton}>
+          <NavLink to="/about" >
+          <button className={styles.buttonAbout}>
+            About</button>
           </NavLink>
         </div>
-        <NavLink to="/favorites" style={unActivestyle}>
-          Favorites
-        </NavLink>
+      
       </div>
     );
   }
 
   if (location.pathname === "/about") {
     return (
-      <div className={styles.divBar}>
-        <div className={styles.logoutButton}>
-          <NavLink to="/" style={unActivestyleLogout}>
-            Logout
+      <div className={styles.container}>
+        <div className={styles.divButton}>
+          <NavLink to="/" >
+          <button className={styles.buttonReset}>
+            To landing</button>
           </NavLink>
         </div>
 
-        <div className={styles.homeButtonAbout}>
-          <NavLink to="/home" style={unActivestyle}>
-            Home
+        <div className={styles.divButton}>
+          <NavLink to="/home">
+          <button className={styles.buttonAbout}>
+            Home</button>
           </NavLink>
         </div>
-        <div className={styles.favoritesButtonAbout}>
-          <NavLink to="/create" style={unActivestyle}>
-            Create Game
+        <div className={styles.divButton}>
+          <NavLink to="/create">
+          <button className={styles.button}>
+            Create Game</button>
           </NavLink>
         </div>
-        <NavLink to="/favorites" style={unActivestyle}>
-          Favorites
-        </NavLink>
+      
       </div>
     );
   }
 
   if (location.pathname === "/create") {
     return (
-      <div className={styles.divBar}>
-        <div className={styles.logoutButton}>
-          <NavLink to="/" style={unActivestyleLogout}>
-            Logout
+      <div className={styles.container}>
+        <div className={styles.divButton}>
+          <NavLink to="/" >
+          <button className={styles.buttonReset}>
+            To Landing</button>
           </NavLink>
         </div>
 
-        <div className={styles.homeButtonFavorites}>
-          <NavLink to="/home" style={unActivestyle}>
-            Home
+        <div className={styles.divButton}>
+          <NavLink to="/home" >
+          <button className={styles.button}>
+            Home</button>
           </NavLink>
         </div>
 
-        <div className={styles.aboutButtonFavorites}>
-          <NavLink to="/about" style={unActivestyle}>
-            About
+        <div className={styles.divButton}>
+          <NavLink to="/about" >
+          <button className={styles.buttonAbout}>
+            About</button>
           </NavLink>
         </div>
-        <NavLink to="/favorites" style={unActivestyle}>
-          Favorites
-        </NavLink>
+     
       </div>
     );
   }
   if (location.pathname.startsWith("/detail/")) {
     return (
-      <div className={styles.divBar}>
-        <div className={styles.logoutButton}>
-          <NavLink to="/" style={unActivestyleLogout}>
-            Logout
+      <div className={styles.container}>
+        <div className={styles.divButton}>
+          <NavLink to="/">
+          <button className={styles.buttonReset}>
+            To landing</button>
           </NavLink>
         </div>
 
-        <div className={styles.homeButtonFavorites}>
-          <NavLink to="/home" style={unActivestyle}>
-            Home
+        <div className={styles.divButton}>
+          <NavLink to="/home" >
+          <button className={styles.button}>
+            Home</button>
           </NavLink>
         </div>
-        <NavLink to="/favorites" style={unActivestyle}>
-          Favorites
-        </NavLink>
+        
       </div>
     );
   }

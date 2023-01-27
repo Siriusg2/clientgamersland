@@ -1,27 +1,25 @@
 /* eslint-disable */
-import { React, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as handlers from "./eventHandlers";
 import {
   filterCardsbyGenres,
   filterCardsbyOrigin,
-  setFiltered,
 } from "../../redux/actions";
 import styles from "./Filter.module.css";
 
-const Filter = (props) => {
+const Filter = () => {
   const genres = useSelector((state) => state.gameGenres);
-  const allgames = useSelector((state) => state.allCharacters);
   const dispatch = useDispatch();
   useEffect(() => {}, [dispatch, filterCardsbyGenres, filterCardsbyOrigin]);
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.filterOptions}>
-        <label className={styles.labelId}>Sort for Game Name :</label>
+        <label className={styles.label}>Sort for Game Name :</label>
         <select
           id="sortByGameName"
           name="sortByGameName"
-          className={styles.selectId}
+          className={styles.select}
           onChange={(e) => dispatch(handlers.handleSortByName(e))}
         >
           <option key={"Default"} value="Default">
@@ -36,11 +34,11 @@ const Filter = (props) => {
         </select>
       </div>
       <div className={styles.filterOptions}>
-        <label className={styles.labelId}>Sort by game rating:</label>
+        <label className={styles.label}>Sort by game rating:</label>
         <select
           id="sortByGameRating"
           name="order"
-          className={styles.selectId}
+          className={styles.select}
           onChange={(e) => dispatch(handlers.handleSortByRating(e))}
         >
           <option key={"Default"} value="Default">
@@ -53,13 +51,15 @@ const Filter = (props) => {
             Descending
           </option>
         </select>
-        <label className={styles.labelgender}>
-          Filter for Videogame Genre:
+        </div>
+        <div className={styles.filterOptions}>
+        <label className={styles.label}>
+          Filter for game genre:
         </label>
         <select
           id="filterByGenre"
           name="gender"
-          className={styles.selectGender}
+          className={styles.select}
           onChange={(e) => dispatch(handlers.handleFilterByGenre(e, true))}
         >
           <option key="all" value="all">
@@ -70,14 +70,15 @@ const Filter = (props) => {
               {genre.name}
             </option>
           ))}
-        </select>
-        <label className={styles.labelgender}>
-          Filter by user created or existing game
+        </select></div>
+         <div className={styles.filterOptions}>
+        <label className={styles.label}>
+          Filter by game origin:
         </label>
         <select
           id="filterByorigin"
           name="origin"
-          className={styles.selectGender}
+          className={styles.select}
           onChange={(e) => dispatch(handlers.handleFilterByOrigin(e))}
         >
           <option
@@ -95,7 +96,7 @@ const Filter = (props) => {
           </option>
         </select>
       </div>
-    </>
+    </div>
   );
 };
 

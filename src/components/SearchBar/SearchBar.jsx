@@ -28,7 +28,7 @@ export default function SearchBar(props) {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <input
         type="string"
         placeholder="Enter the name of a game, or a related word... "
@@ -49,9 +49,9 @@ export default function SearchBar(props) {
         Search
       </button>
       <button className={styles.buttonRandom} onClick={() => onClick()}>
-        Undo Last Search
+       Reset
       </button>
-    </>
+    </div>
   );
 }
 // eslint-disable-next-line linebreak-style

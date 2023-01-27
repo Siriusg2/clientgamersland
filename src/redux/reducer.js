@@ -11,6 +11,7 @@ import {
   SET_FILTER,
   RESET_FILTER,
   CREATE_VIDEOGAME,
+
 } from './actions';
 
 const initialState = {
@@ -19,6 +20,7 @@ const initialState = {
   allCharacters: [],
   gameGenres: [],
   gamesFiltered: [],
+
 };
 
 const reducer = (state = initialState, action) => {

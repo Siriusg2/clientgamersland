@@ -1,14 +1,16 @@
 /* eslint-disable */
-import React from "react";
+
 import styles from "./Detail.module.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Card from "../Card/Card";
+import Loading from "../Loading/Loading"
+
 
 const Detail = () => {
   const cardName = useParams();
   const [character, setcharacter] = useState({});
+
 
   useEffect(() => {
     async function fetchData() {
@@ -37,21 +39,30 @@ const Detail = () => {
     }
     fetchData();
   }, [cardName]);
-  return (
+  if(Object.keys(character).length){return (
     <>
-      {" "}
-      <div className={styles.divDetail}>
+
+      <div style={{
+        backgroundImage: `url(${character.image})`,
+        backgroundSize: "cover",
+        position: "fixed",
+        width: "100%",
+        height: "100%",
+        zIndex: "-99",
+        opacity:".8"
+      }}/>
+        <div className={styles.container} >
         <div className={styles.divDetailtext}>
-          <h3 className={styles.h3Info} style={{ color: "rgb(8, 194, 8)" }}>
-            <span className={styles.label}>ID Game:</span> #{character.id}
+          <h3 className={styles.h3Info}>
+            <span className={styles.label}>ID Game:</span> {character.id}
             <hr />
-            <span className={styles.label}>Name:</span> {character.name}
+            <span className={styles.label}><hr />Name:</span> {character.name}
             <hr />
-            <span className={styles.label}> Rating: </span>
+            <span className={styles.label}> <hr />Rating: </span>
             {character.rating}
-            <hr /> <span className={styles.label}>Released:</span>{" "}
+            <hr /> <span className={styles.label}><hr />Released:</span>{" "}
             {character.released}
-            <hr /> <span className={styles.label}> Genres:</span>{" "}
+            <hr /> <span className={styles.label}> <hr />Genres:</span>{" "}
             {character.genres?.map((string, index) => (
               <span key={index}>
                 {string}
@@ -59,7 +70,7 @@ const Detail = () => {
               </span>
             ))}
             <hr />
-            <span className={styles.label}>Platforms:</span>{" "}
+            <span className={styles.label}><hr />Platforms:</span>{" "}
             {character.platforms?.map((string, index) => (
               <span key={index}>
                 {string}
@@ -68,23 +79,22 @@ const Detail = () => {
             ))}
           </h3>
         </div>
-        <div className={styles.divDetailImage}>
-          <img
-            src={character.image}
-            alt={character.name}
-            className={styles.img}
-          ></img>
-        </div>
-        <div className={styles.divDetailtext}>
-          <h3 className={styles.h3Info} style={{ color: "rgb(8, 194, 8)" }}>
+          
+   <img src={character.image} className={styles.img}/>
+        <div className={styles.divDescription}>
+        
             <span className={styles.label}>Game Description:</span>
-            <p>{character.description}</p>
-            <hr />
-          </h3>
+            <p>{character.description}</p></div>
+  
         </div>
-      </div>
+   
     </>
-  );
+  );}else{
+return (
+  <><Loading/>
+  </>
+)
+  }
 };
 
 export default Detail;

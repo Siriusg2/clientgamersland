@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable function-paren-newline */
 /* eslint-disable consistent-return */
 import axios from 'axios';
@@ -16,22 +17,6 @@ export const SET_FILTER = 'SET_FILTER';
 export const RESET_FILTER = 'RESET_FILTER';
 export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME';
 
-export const removeFavorite = (id) => ({
-  type: REMOVE_FAVORITE,
-  payload: id,
-});
-export const addFavorite = ({
-  id, name, species, gender, image,
-}) => ({
-  type: ADD_FAVORITE,
-  payload: {
-    id,
-    name,
-    species,
-    gender,
-    image,
-  },
-});
 export const createGame = (game) => async (dispatch) => {
   try {
     const response = await axios.post('/videogames', game);

@@ -1,54 +1,54 @@
+.container {
+display: flex;
+flex-direction: row;
+background-color: gray;
+  justify-content: space-around;
+
+margin-top: 1rem;
+
+}
 .filterOptions {
-  justify-self: flex-end;
-  align-self: flex-end;
-  display: flex;
-  flex-direction: row wrap;
-  width: 70vw;
-  justify-content: space-between;
+ display: flex;
+ flex-direction: column;
+
+ align-items: space-around;
+
 }
 
-.selectGender {
-  font-weight: bolder;
-  font-size: 1.2vw;
-  font-style: oblique;
-  height: 3vw;
-  width: 10vw;
-  background-color: rgb(246, 136, 9);
-  border-radius: 5px;
-  color: white;
-  box-shadow: 1px 1px 10px 1px rgb(246, 136, 9);
+
+
+.select {
   text-align: center;
+align-self: center;
+  font-weight: bold;
+  padding: .2vw 0 .2vw .2vw ;
+  background-color: lightgray;
+  text-shadow: -.1vw -.1vw black, .1vw .1vw white;
+  color: gray;
+  -webkit-border-radius: .7vw;
+  -moz-border-radius: .7vw;
+  -o-border-radius: .7vw;
+  border-radius: .7vw;
+  box-shadow: 0 .2em gray;
+  cursor: pointer;
+  font-size: 1vw;
+  font-family: 'Press Start 2p';
+margin-top: 1vw;
 }
 
-.selectId {
-  font-style: oblique;
-  font-weight: bolder;
-  font-size: 1.2vw;
-  height: 3vw;
-  width: 10vw;
-  background-color: rgb(8, 194, 8);
-  border-radius: 5px;
-  text-align: center;
-  color: white;
-  box-shadow: 1px 1px 10px 1px rgb(8, 194, 8);
-}
-
-.labelId {
-  font-style: oblique;
-  color: rgb(8, 194, 8);
+.label {
   align-self: center;
-  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 1px 1px #fff,
-    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
-  font-weight: bolder;
-  font-size: 1.8vw;
+  text-shadow: -.1vw -.1vw black, .1vw .1vw white;
+  font-family: 'Press Start 2p'; 
+color: white;
+
+
+font-size: 1vw;
+
 }
 
-.labelgender {
-  font-style: oblique;
-  font-weight: bolder;
-  color: rgb(246, 136, 9);
-  align-self: center;
-  font-size: 1.8vw;
-  text-shadow: 1px 0 #fff, -1px 0 #fff, 0 1px #fff, 0 -1px #fff, 1px 1px #fff,
-    -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
+option{
+  color: gray;
+  font-weight: bold;
+  text-shadow: -.1vw -.1vw black, .1vw .1vw white;
 }

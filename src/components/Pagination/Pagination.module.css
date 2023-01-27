@@ -1,41 +1,86 @@
 .pagdiv {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-ul {
+margin-top: 1rem;
+  
+ 
+  }
+  
+  .ul {
   display: flex;
   flex-direction: row;
-}
-
-li {
+  
+  justify-content: center;
+  padding: 0;
+  align-content: center;
+  width: 100%;
+  }
+  .divli{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 0;
+  /* width: 30rem; */
+  }
+  li {
   list-style: none;
-  margin: 20px;
-  width: 40px;
-}
+  border: 5px solid whitesmoke;
+  width: 5rem;
+  }
+  
+  .pagbtn{
+  text-align: center;
+  display: inline-block;
+  
+  font-weight: bold;
+  padding: .2px 0 .2px .2px ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray;
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: 'Press Start 2p';
+  
+  }
+  .pagbt{
+  text-align: center;
+  display: inline-block;
+  
+  font-weight: bold;
+  padding: .2px 0 .2px .2px ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: white;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: 'Press Start 2p';
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+  
+  }
+  .pagbtn:active {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+  color: white;
+  }
+  
 
-.pagbtn {
-  font-family: "Press Start 2P";
-  font-size: larger;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  background-color: coral;
-  color: black;
-}
+  @media (max-width: 768px) {
+  .pagdiv, .ul, .divli, li, .pagbtn, .pagbt {
+  width: 55%; 
+  font-size: .5rem;
+  
 
-.pagbt {
-  font-family: "Press Start 2P";
-  font-size: larger;
-  width: 50px;
-  height: 50px;
-  border-radius: 30px;
-  background-color: black;
-  color: coral;
-}
-
-.pagbtn:hover {
-  background-color: black;
-  color: coral;
-}
+}}
+  

@@ -1,14 +1,14 @@
 /* eslint-disable */
-import Card from "../Card/Card";
 import styles from "./Cards.module.css";
-
 import { useSelector } from "react-redux";
-
 import { useEffect, useState } from "react";
-
 import Pagination from "../Pagination/Pagination";
+import Loading from "../Loading/Loading";
+import Card from "../Card/Card";
 import SearchBar from "../SearchBar/SearchBar";
 import Filter from "../Filter/Filter";
+import Bgvideo from "../Bgvideo/Bgvideo";
+import cardsvideo from "../../bgvideos/landing.mp4";
 
 export default function Cards(props) {
   const allCharacters = useSelector((state) => state.allCharacters);
@@ -20,11 +20,9 @@ export default function Cards(props) {
   const indexOfFirstCard = indexOfLastCard - cardPerPage;
   let currentCards;
 
-  if (typeof allCharacters === "string") {
-    currentCards = allCharacters;
-  } else {
-    currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);
-  }
+  if (Array.isArray(allCharacters)) {currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);}
+else{currentCards = []  }
+
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -32,71 +30,66 @@ export default function Cards(props) {
   useEffect(() => {
     setCurrentPage(1);
   }, [allCharacters]);
-  return gamesFiltered.length > 15 ? (
-    <>
-      <div className={styles.welcome}>
-        <h1>
-          Hola querido Gamer, aca puedes encontrar un listado de 15 videojuegos
-          para que puedas explorar cada uno de estos universos, haz click en el
-          nombre de cualquiera
-        </h1>
+  if (!allCharacters.length) {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  } else {
+    return gamesFiltered.length > 15  && Array.isArray(gamesFiltered) ? (
+      <div className={styles.container}>
+        <div className={styles.divControls}>
+        <Bgvideo video={cardsvideo} />
+        <SearchBar />
+        <Filter />
+        <Pagination
+          cardPerPage={cardPerPage}
+          totalCards={gamesFiltered.length}
+          paginate={paginate}
+          currentPage={currentPage}
+        /></div>
+        <div className={styles.divCards}>
+          {currentCards?.map((card) => (
+            <Card
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              genres={card.genres ? card.genres : "UNKNOWN"}
+              image={card.background_image}
+            />
+          ))}
+        </div>
+        <div className={styles.divPaginationbottom}> </div>
       </div>
-
-      <SearchBar />
-      <Filter />
-      <Pagination
-        cardPerPage={cardPerPage}
-        totalCards={gamesFiltered.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
-      <div className={styles.divCards}>
-        {currentCards?.map((card) => (
-          <Card
-            key={card.id}
-            id={card.id}
-            name={card.name}
-            genres={card.genres}
-            image={card.background_image}
-          />
-        ))}
+    ) : gamesFiltered.length <= 15 && gamesFiltered.length > 0 && Array.isArray(gamesFiltered)  ? (
+      <div className={styles.container}>
+        <Bgvideo video={cardsvideo} />
+        <div className={styles.divControls}>
+        <SearchBar />
+        <Filter /></div>
+        <div className={styles.divCards}>
+          {currentCards?.map((card) => (
+            <Card
+              key={card.id}
+              id={card.id}
+              name={card.name}
+              genres={card.genres ? card.genres : "UNKNOWN"}
+              image={card.background_image}
+            />
+          ))}
+        </div>
       </div>
-      <Pagination
-        cardPerPage={cardPerPage}
-        totalCards={gamesFiltered.length}
-        paginate={paginate}
-        currentPage={currentPage}
-      />
-    </>
-  ) : gamesFiltered.length <= 15 && gamesFiltered.length > 0 ? (
-    <>
-      <div className={styles.welcome}>
-        <h1>
-          Hola querido Gamer, aca puedes encontrar un listado de 15 videojuegos
-          para que puedas explorar cada uno de estos universos, haz click en el
-          nombre de cualquiera
-        </h1>
+    ) : !gamesFiltered.length  || !Array.isArray(gamesFiltered)? (
+      <div className={styles.container}>
+        <Bgvideo video={cardsvideo} />
+        <SearchBar />
+        <Filter />
+        <h1 className={styles.noGames}> Oops! There are <br/> no games that match your search <br/>  Try again! </h1>
+      
       </div>
-      <SearchBar />
-      <Filter />
-      <div className={styles.divCards}>
-        {currentCards?.map((card) => (
-          <Card
-            id={card.id}
-            key={card.id}
-            name={card.name}
-            genres={card.genres}
-            image={card.background_image}
-          />
-        ))}
-      </div>
-    </>
-  ) : (
-    <>
-      <SearchBar />
-      <h1>Oops! parece que no hay juegos que mostrar</h1>
-    </>
-  );
+    ) : null
+  }
 }
 
 //

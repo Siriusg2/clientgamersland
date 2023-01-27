@@ -3,132 +3,101 @@
   flex-direction: column;
   align-content: space-between;
   align-items: center;
-  border: 5px solid red;
+ 
   min-width: 100%;
   min-height: 100%;
 }
 
-.containerDetailtext {
-  display: flex;
-  flex-direction: row;
-  width: 98vw;
-  justify-content: space-around;
-}
 
-.divDetailtext {
-  display: flex;
-  flex-direction: column wrap;
+.start_btn{
+  text-align: center;
+display: inline-block;
+margin-top:10vw;
+  font-weight: bold;
+  padding: 1vw 0 1vw 1vw ;
+  background-color: lightgray;
+  text-shadow: -1px -1px black, 1px 1px white;
+  color: gray;
+  -webkit-border-radius: 7px;
+  -moz-border-radius: 7px;
+  -o-border-radius: 7px;
+  border-radius: 7px;
+  box-shadow: 0 .2em gray; 
+  cursor: pointer;
+  font-size: 2.5vw;
+  font-family: 'Press Start 2p';
+  
+}
+.start_btn:active {
+  box-shadow: none;
+	position: relative;
+	top: .2em;
   color: white;
+}
+.title{
+  display: flex-end;
+  
+  text-shadow: -.1vw -.1vw black, .1vw .1vw gold;
+  font-family: 'Press Start 2p'; 
+color: red;
 
+font-size: 2.3vw;
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid white; /* The typwriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+margin-top: 15vw; 
+letter-spacing: .20em; /* Adjust as needed */
+animation: 
+  typing 3.8s steps(30, end),
+  blink-caret .5s step-end infinite;
+}
+.title.restart {
+  display: flex-end;
+  
+  text-shadow: -.1vw -.1vw black, .1vw .1vw gold;
+  font-family: 'Press Start 2p'; 
+color: red;
+
+font-size: 2.3vw;
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid white; /* The typwriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+margin-top: 15vw; 
+letter-spacing: .20em; /* Adjust as needed */
+animation: 
+  typing 3.8s steps(30, end),
+  blink-caret .5s step-end infinite;
+}
+
+.input{
   width: 30vw;
-  height: 30vw;
-  justify-content: flex-start;
+  height: 3vw;
   background-color: white;
-  background-size: auto;
-  border-radius: 50px;
-  box-shadow: 1px 1px 20px 10px rgb(246, 136, 9);
-  opacity: 0.5;
-  transition: 700ms;
+  margin-right: 30px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px 1px white;
+  font-weight: bolder;
+  font-size: 1.5rem;
+  font-family: 'Press Start 2p';
 }
 
-.divDetailtext:hover {
-  opacity: 0.7;
-  transition: 700ms;
-  text-shadow: 0.1em 0.2em 0.1em black;
-  box-shadow: 5px 3px 20px 10px rgb(8, 194, 8);
-  width: 35vw;
-  height: 35vw;
+
+
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
 }
 
-.divDetailImage {
-  border-radius: 10px;
-  opacity: 0.7;
-  box-shadow: 1px 1px 20px 10px rgb(246, 136, 9);
-  height: 15vw;
-  width: 15vw;
-  transition: 700ms;
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: orange }
 }
 
-.divDetailImage:hover {
-  box-shadow: 5px 3px 20px 10px rgb(8, 194, 8);
 
-  opacity: 1;
-  height: 20vw;
-  width: 20vw;
-  transition: 700ms;
-}
 
-.img {
-  height: 15vw;
-  width: 15vw;
-  border-radius: 10px;
-  filter: blur(10px);
-  transition: 700ms;
 
-  /* animation-name: logoAnimation;
-animation-duration: 3s;
-animation-iteration-count: infinite;
-animation-timing-function: ease-in-out; */
-}
 
-/* .divDetailtext::after{
-    width: 30vw;
-    height: 30vw;
-    z-index: 4;
-    background-color: red;
-    position: absolute;
-    content: "";
-    opacity: .5;
-} */
 
-.img:hover {
-  height: 20vw;
-  width: 20vw;
-  transition: 700ms;
-  filter: blur(0px);
-  transition: 700ms;
-}
 
-.h3Info {
-  color: rgb(8, 194, 8);
-  opacity: 0.7;
-
-  box-shadow: 1px 2px 10px 1px white;
-  width: 40vw;
-
-  font-size: 2vw;
-  opacity: 1;
-}
-
-.h3Info:hover {
-  font-size: 2.2vw;
-}
-
-.label {
-  color: rgb(246, 136, 9);
-}
-
-.links {
-  color: rgb(8, 194, 8);
-  opacity: 0.7;
-  font-size: 1.9vw;
-  text-decoration: none;
-}
-
-/* 
-@keyframes logoAnimation {
-    0% {
-        transform: scale(1) rotateZ(0deg);
-        filter: blur(1px) drop-shadow(0px 0px 0px red) brightness(0.7);
-    }
-
-    50% {
-        transform: scale(1.2) rotateZ(3deg);
-        filter: blur(0px) drop-shadow(16px 16px 20px rgb(83, 162, 247)) brightness(1.6);
-    }
-
-    100% {
-        transform: scale(1) rotateZ(0deg);
-        filter: blur(1px) drop-shadow(0px 0px 0px red) brightness(0.7);
-    }
-} */

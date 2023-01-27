@@ -1,38 +1,72 @@
+.container{
+  display: flex;
+  flex-direction: column  ;
+align-content: space-around;
+align-items: space-around;
+ z-index: -1;
+
+ height: 100rem;
+
+}
+
+.divControls{
+  display: flex;
+  flex-direction: column;
+
+  justify-content: space-evenly;
+
+  margin: 4rem 4rem 1rem 4rem;
+  height: 20rem;
+}
+
 .divCards {
   display: grid;
-  grid-template-columns: repeat(5, 20%);
-  grid-gap: 16px;
-  grid-auto-rows: minmax(200px, auto);
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 2rem;
+  grid-auto-rows: minmax(10vw, auto);
   justify-items: center;
-  margin-top: 15vw;
-  border: 5px solid red;
+  margin-top: 15rem;
+  position: relative;
+margin: 0  1rem 0 1rem;
+z-index: 1;
+
+ 
+}
+
+.noGames{
+  display: flex-end;
+  
+  text-shadow: -.1vw -.1vw black, .1vw .1vw gold;
+  font-family: 'Press Start 2p'; 
+color: red;
+
+font-size: 2.3vw;
+overflow: hidden; /* Ensures the content is not revealed until the animation */
+border-right: .15em solid white; /* The typwriter cursor */
+white-space: nowrap; /* Keeps the content on a single line */
+margin-top: 15vw; 
+letter-spacing: .20em; /* Adjust as needed */
+animation: 
+  typing 3.8s steps(30, end),
+  blink-caret .5s step-end infinite;
 }
 
 @media (max-width: 992px) {
-  .divCards {
+  .divCards, .divPaginationbottom, .divPaginationsup {
     grid-template-columns: repeat(3, 30%);
   }
 }
 
 @media (max-width: 768px) {
-  .divCards {
+  .divCards, .divPaginationbottom, .divPaginationsup  {
     grid-template-columns: repeat(2, 48%);
   }
 }
 
 @media (max-width: 576px) {
-  .divCards {
+  .divCards, .divPaginationbottom, .divPaginationsup  {
     grid-template-columns: repeat(1, 100%);
     grid-auto-rows: minmax(150px, auto);
   }
 }
 
-.ops,
-.welcome,
-.pageBunttons {
-  color: red;
-}
-
-.pageBunttons {
-  font-size: 3vw;
-}
