@@ -1,5 +1,5 @@
 /* eslint-disable */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as handlers from "./eventHandlers";
 import {
@@ -11,7 +11,10 @@ import styles from "./Filter.module.css";
 const Filter = () => {
   const genres = useSelector((state) => state.gameGenres);
   const dispatch = useDispatch();
-  useEffect(() => {}, [dispatch, filterCardsbyGenres, filterCardsbyOrigin]);
+const [originFilter, setOriginFilter] = useState("")
+const [genreFilter, setgenreFilter] = useState("")
+  
+  // useEffect(() => {}, [dispatch, filterCardsbyGenres, filterCardsbyOrigin]);
   return (
     <div className={styles.container}>
       <div className={styles.filterOptions}>
@@ -60,7 +63,8 @@ const Filter = () => {
           id="filterByGenre"
           name="gender"
           className={styles.select}
-          onChange={(e) => dispatch(handlers.handleFilterByGenre(e, true))}
+          value={genreFilter}
+          onChange={(e) => dispatch(handlers.handleFilterByGenre(e,  setgenreFilter))}
         >
           <option key="all" value="all">
             All
@@ -79,12 +83,13 @@ const Filter = () => {
           id="filterByorigin"
           name="origin"
           className={styles.select}
-          onChange={(e) => dispatch(handlers.handleFilterByOrigin(e))}
+          value={originFilter}
+          onChange={(e) => dispatch(handlers.handleFilterByOrigin(e,  setOriginFilter))}
         >
           <option
             key="all"
             value="all"
-            onClick={() => dispatch(handlers.handleResetFilter())}
+           
           >
             All
           </option>

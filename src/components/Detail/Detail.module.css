@@ -6,7 +6,7 @@ flex-direction: column;
   align-content: flex-end;
 background-color: lightgrey;
   width: 47%;
-position: fixed;
+position: absolute;
 height: 35rem;
 margin-top: 7rem;
 margin-left: 2rem;
@@ -48,12 +48,12 @@ align-self: flex-end;
 }
 
 .img {
-  width: 22%;
+  width: 45%;
   height: 36%;
   margin: .4rem;
 
     border-radius: 10px;
-    position: fixed;
+    position: absolute;
     align-self: flex-end;
     margin-left: 2rem;
     box-shadow: .2em .2em .2em .2em black;

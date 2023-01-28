@@ -17,17 +17,16 @@ export const handleSortByRating = (event) => (dispatch) => {
   document.getElementById('sortByGameName').selectedIndex = 0;
 };
 
-export const handleFilterByOrigin = (event) => (dispatch) => {
+export const handleFilterByOrigin = (event, setState) => (dispatch) => {
   const targetValue = event.target.value;
+  setState(targetValue);
   dispatch(setFilter(targetValue));
-  document.getElementById('filterByGenre').selectedIndex = 0;
+  // document.getElementById('filterByGenre').selectedIndex = 0;
 };
-export const handleFilterByGenre = (event) => (dispatch) => {
+export const handleFilterByGenre = (event, setState) => (dispatch) => {
   const targetValue = event.target.value;
-  document.getElementById('filterByorigin').selectedIndex = 0;
+  setState(targetValue);
+  // document.getElementById('filterByorigin').selectedIndex = 0;
 
   dispatch(setFilter(targetValue));
-};
-export const handleResetFilter = () => (dispatch) => {
-  dispatch(resetFilter());
 };

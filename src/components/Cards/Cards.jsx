@@ -20,16 +20,22 @@ export default function Cards(props) {
   const indexOfFirstCard = indexOfLastCard - cardPerPage;
   let currentCards;
 
-  if (Array.isArray(allCharacters)) {currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);}
-else{currentCards = []  }
-
+  if (Array.isArray(allCharacters)) {
+    if (allCharacters.length === gamesFiltered.length) {
+      currentCards = allCharacters.slice(indexOfFirstCard, indexOfLastCard);
+    } else {
+      currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);
+    }
+  } else {
+    currentCards = [];
+  }
 
   const paginate = (pageNumber) => {
     setCurrentPage(pageNumber);
   };
   useEffect(() => {
     setCurrentPage(1);
-  }, [allCharacters]);
+  }, []);
   if (!allCharacters.length) {
     return (
       <>
@@ -37,18 +43,19 @@ else{currentCards = []  }
       </>
     );
   } else {
-    return gamesFiltered.length > 15  && Array.isArray(gamesFiltered) ? (
+    return currentCards.length > 15 || currentCards.length > 0 ? (
       <div className={styles.container}>
         <div className={styles.divControls}>
-        <Bgvideo video={cardsvideo} />
-        <SearchBar />
-        <Filter />
-        <Pagination
-          cardPerPage={cardPerPage}
-          totalCards={gamesFiltered.length}
-          paginate={paginate}
-          currentPage={currentPage}
-        /></div>
+          <Bgvideo video={cardsvideo} />
+          <SearchBar />
+          <Filter />
+          <Pagination
+            cardPerPage={cardPerPage}
+            totalCards={gamesFiltered.length}
+            paginate={paginate}
+            currentPage={currentPage}
+          />
+        </div>
         <div className={styles.divCards}>
           {currentCards?.map((card) => (
             <Card
@@ -62,33 +69,18 @@ else{currentCards = []  }
         </div>
         <div className={styles.divPaginationbottom}> </div>
       </div>
-    ) : gamesFiltered.length <= 15 && gamesFiltered.length > 0 && Array.isArray(gamesFiltered)  ? (
-      <div className={styles.container}>
-        <Bgvideo video={cardsvideo} />
-        <div className={styles.divControls}>
-        <SearchBar />
-        <Filter /></div>
-        <div className={styles.divCards}>
-          {currentCards?.map((card) => (
-            <Card
-              key={card.id}
-              id={card.id}
-              name={card.name}
-              genres={card.genres ? card.genres : "UNKNOWN"}
-              image={card.background_image}
-            />
-          ))}
-        </div>
-      </div>
-    ) : !gamesFiltered.length  || !Array.isArray(gamesFiltered)? (
+    ) : !currentCards.length  ? (
       <div className={styles.container}>
         <Bgvideo video={cardsvideo} />
         <SearchBar />
         <Filter />
-        <h1 className={styles.noGames}> Oops! There are <br/> no games that match your search <br/>  Try again! </h1>
-      
+        <h1 className={styles.noGames}>
+          {" "}
+          Oops! There are <br /> no games that match your search <br /> Try
+          again!{" "}
+        </h1>
       </div>
-    ) : null
+    ) : null;
   }
 }
 

@@ -10,8 +10,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 
-// axios.defaults.baseURL = 'http://localhost:3001';
-axios.defaults.baseURL = 'https://apigamersland.up.railway.app/';
+axios.defaults.baseURL = 'http://localhost:3001';
+// axios.defaults.baseURL = 'https://apigamersland.up.railway.app/';
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

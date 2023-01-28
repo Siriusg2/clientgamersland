@@ -4,7 +4,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import styles from './Pagination.module.css';
 
 export default function Pagination({
@@ -16,29 +16,13 @@ export default function Pagination({
   if (Math.ceil(totalCards / cardPerPage) < currentPage) {
     paginate(1);
   }
-  const [isHidden, setIsHidden] = useState(false);
-
   const pageNumbers = [];
   for (let i = 1; i <= Math.ceil(totalCards / cardPerPage); i++) {
     pageNumbers.push(i);
   }
 
-  useEffect(() => {
-    function handleScroll() {
-      if (window.scrollY > 100) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
-    }
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
-
   return totalCards > 15 ? (
-    <div className={`${styles.pagdiv} ${isHidden ? styles.pagdiv.hidden : null}`}>
+    <div className={styles.pagdiv}>
 
       <div className={styles.ul}>
         <button

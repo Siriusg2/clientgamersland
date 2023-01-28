@@ -36,7 +36,7 @@ function Form() {
             onChange={(e) => handleChange(e, setErrors, setForm, form)}
           >
             <label htmlFor="name">
-              <strong>Name: </strong>
+              Name:
             </label>
             <br />
             <input
@@ -49,7 +49,7 @@ function Form() {
 
             <br />
             <label htmlFor="description">
-              <strong>Description: </strong>
+              Description:
             </label>
             <br />
             <textarea
@@ -62,7 +62,7 @@ function Form() {
 
             <br />
             <label htmlFor="launch_date">
-              <strong>Release Date: </strong>
+              Release Date:
             </label>
             <br />
             <input
@@ -74,7 +74,7 @@ function Form() {
 
             <br />
             <label htmlFor="rating">
-              <strong>Rating: </strong>
+              Rating:
             </label>
             <br />
             <input
@@ -88,7 +88,7 @@ function Form() {
             <br />
 
             <label>
-              <strong>Genres:</strong>
+              Genres:
             </label>
 
             <div id="genres">
@@ -108,7 +108,7 @@ function Form() {
             </div>
             <br />
             <label>
-              <strong>Platforms: </strong>
+              Platforms:
             </label>
 
             <div id="platforms">

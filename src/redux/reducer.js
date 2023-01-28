@@ -161,7 +161,6 @@ const reducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        isFiltered: true,
         gamesFiltered: state.allCharacters.filter((game) => game.genres.includes(action.payload)),
       };
 
@@ -171,12 +170,7 @@ const reducer = (state = initialState, action) => {
         allCharacters: [...state.allCharacters, action.payload],
         gamesFiltered: [...state.gamesFiltered, action.payload],
       };
-    case RESET_FILTER:
-      return {
-        ...state,
-        isFiltered: false,
-        gamesFiltered: state.allCharacters,
-      };
+
     default:
       return {
         ...state,
