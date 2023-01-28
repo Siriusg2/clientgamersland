@@ -1,7 +1,7 @@
 import {
   sortCardsbyRating,
   sortCardsbyName,
-  resetFilter,
+
   setFilter,
 } from '../../redux/actions';
 
@@ -21,12 +21,10 @@ export const handleFilterByOrigin = (event, setState) => (dispatch) => {
   const targetValue = event.target.value;
   setState(targetValue);
   dispatch(setFilter(targetValue));
-  // document.getElementById('filterByGenre').selectedIndex = 0;
 };
 export const handleFilterByGenre = (event, setState) => (dispatch) => {
   const targetValue = event.target.value;
   setState(targetValue);
-  // document.getElementById('filterByorigin').selectedIndex = 0;
 
   dispatch(setFilter(targetValue));
 };

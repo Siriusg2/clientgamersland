@@ -3,9 +3,6 @@
 /* eslint-disable consistent-return */
 import axios from 'axios';
 
-export const ADD_FAVORITE = 'ADD_FAVORITE';
-export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
-
 export const FILTER_BY_GENRES = 'FILTER_BY_GENRES';
 export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';
 export const SORT_BY_RATING = 'SORT_BY_RATING';
@@ -76,8 +73,4 @@ export const sortCardsbyName = (type) => ({
 export const setFilter = (filter) => ({
   type: SET_FILTER,
   payload: filter,
-});
-
-export const resetFilter = () => ({
-  type: RESET_FILTER,
 });

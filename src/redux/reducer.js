@@ -1,15 +1,14 @@
 /* eslint-disable default-param-last */
 /* eslint-disable linebreak-style */
 import {
-  ADD_FAVORITE,
-  REMOVE_FAVORITE,
+
   GET_GENRES,
   GET_GAMES,
   GET_GAMES_BY_NAME,
   SORT_BY_NAME,
   SORT_BY_RATING,
   SET_FILTER,
-  RESET_FILTER,
+
   CREATE_VIDEOGAME,
 
 } from './actions';
@@ -42,23 +41,6 @@ const reducer = (state = initialState, action) => {
         ...state,
         allCharacters: action.payload,
         gamesFiltered: action.payload,
-      };
-
-    case ADD_FAVORITE:
-      return {
-        ...state,
-        myFavorites: [...state.myFavorites, action.payload],
-        allMyFavorites: [...state.allMyFavorites, action.payload],
-      };
-    case REMOVE_FAVORITE:
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter(
-          (favorite) => favorite.id !== action.payload,
-        ),
-        allMyFavorites: state.allMyFavorites.filter(
-          (favorite) => favorite.id !== action.payload,
-        ),
       };
 
     case SORT_BY_NAME:
