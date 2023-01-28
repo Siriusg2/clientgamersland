@@ -1,9 +1,7 @@
 /* eslint-disable */
 import { NavLink } from "react-router-dom";
 import styles from "./Card.module.css";
-import { addFavorite, removeFavorite } from "../../redux/actions";
-
-import { connect } from "react-redux";
+import loading from "../..//bgvideos/loadingimage.gif"
 
 
 function Card(props) {
@@ -14,7 +12,7 @@ function Card(props) {
     <div className={styles.divCard}>
       
 
-      <img className={styles.imgCard} src={props.image} alt="" />
+      <img className={styles.imgCard} src={props.image ? props.image : loading} alt="" />
 
      
         <span className={styles.label }>{props.name}</span>

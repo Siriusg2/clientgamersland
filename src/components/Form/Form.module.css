@@ -1,113 +1,23 @@
-.divForm {
+.container {
   display: flex;
   flex-direction: column wrap;
-
-  width: 40vw;
-  height: 30vw;
-  align-items: center;
-  justify-content: center;
-
-  background-color: whitesmoke;
-  margin-left: 30vw;
-  margin-top: 8vw;
-  border-radius: 30px;
-  box-shadow: 5px 3px 15px 10px rgb(246, 136, 9);
-  opacity: 0.5;
-  transition: 700ms;
-}
-
-.divForm:hover {
-  opacity: 1;
-  transition: 700ms;
-
-  box-shadow: 5px 3px 15px 10px rgb(8, 194, 8);
-}
-
-.danger {
-  font-size: 10px;
-  color: rgb(246, 136, 9);
-  margin-left: 10em;
-}
-
-.labels {
-  color: rgb(246, 136, 9);
-
-  font-style: italic;
-  font-weight: bold;
-  font-size: 1.2vw;
-}
-
-.divButtonLogin {
-  display: flex;
-  flex-direction: row;
-  border-radius: 5px;
-
-  justify-content: center;
-}
-
-.buttonlogin {
-  border-radius: 5px;
-  background-color: rgb(246, 136, 9);
-  font-weight: bold;
-  color: rgb(8, 194, 8);
-  padding: 12px;
-}
-
-.buttonlogin:hover {
-  border-radius: 5px;
-  box-shadow: 1px 1px 10px 5px black;
-  font-weight: bold;
-  color: rgb(246, 136, 9);
-  background-color: rgb(8, 194, 8);
-  transition: 30ms;
-}
-
-.input {
-  border-radius: 0.5vw;
-  box-shadow: 1px 1px 10px 1px black;
-  height: 1.6vw;
-  width: 10vw;
-  font-style: oblique;
-  justify-self: flex-end;
-}
-
-.span {
-  color: rgb(246, 136, 9);
-
-  text-align: center;
-  font-weight: bold;
-  font-size: 1vw;
-  font-style: italic;
-}
-
-.hr {
-  display: flex;
-  flex-direction: row wrap;
-  align-items: center;
-  height: 10vw;
-  width: 38vw;
+  border: 3px solid red;
+  top: 3rem;
   position: relative;
+
+ justify-content: center;
+
+
+ width: 100%;
+ height: 100%;
+
+ 
 }
 
-.divSpan {
-  display: flex;
-  flex-direction: column;
+.divForm{
+  border: 3px solid blue;
 
-  height: 9vw;
-  align-self: center;
-  width: 19vw;
-  align-items: center;
-  justify-content: center;
-  align-self: center;
 }
-
-.divLabelInput {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  align-self: center;
-
-  height: 9vw;
-  width: 19vw;
+.divErrors{
+  border: 3px solid yellow;
 }

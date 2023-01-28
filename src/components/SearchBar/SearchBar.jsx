@@ -31,7 +31,7 @@ export default function SearchBar(props) {
     <div className={styles.container}>
       <input
         type="string"
-        placeholder="Enter the name of a game, or a related word... "
+        placeholder="Enter the a game name... "
         onChange={onInput}
         className={styles.inputSearchBar}
         id="input"

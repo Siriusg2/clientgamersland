@@ -31,10 +31,10 @@ const Detail = () => {
             genres: char.genres,
           });
         } else {
-          window.alert("No hay personajes con ese ID");
+          alert("Game details is not available");
         }
       } catch (err) {
-        window.alert(err.message);
+        alert(err.message);
       }
     }
     fetchData();
