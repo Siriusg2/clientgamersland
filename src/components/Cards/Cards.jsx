@@ -21,11 +21,9 @@ export default function Cards(props) {
   let currentCards;
 
   if (Array.isArray(allCharacters)) {
-    if (allCharacters.length === gamesFiltered.length) {
-      currentCards = allCharacters.slice(indexOfFirstCard, indexOfLastCard);
-    } else {
+
       currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);
-    }
+    
   } else {
     currentCards = [];
   }
