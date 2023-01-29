@@ -55,22 +55,22 @@ const Detail = () => {
         <div className={styles.divDetailtext}>
           <h3 className={styles.h3Info}>
             <span className={styles.label}>ID Game:</span> {character.id}
-            <hr />
-            <span className={styles.label}><hr />Name:</span> {character.name}
-            <hr />
-            <span className={styles.label}> <hr />Rating: </span>
+            <br />
+            <span className={styles.label}><br />Name:</span> {character.name}
+            <br />
+            <span className={styles.label}> <br />Rating: </span>
             {character.rating}
-            <hr /> <span className={styles.label}><hr />Released:</span>{" "}
+            <br /> <span className={styles.label}><br />Released:</span>{" "}
             {character.released}
-            <hr /> <span className={styles.label}> <hr />Genres:</span>{" "}
+            <br /> <span className={styles.label}> <br />Genres:</span>{" "}
             {character.genres?.map((string, index) => (
               <span key={index}>
                 {string}
                 {index !== character.genres.length - 1 ? ", " : ""}
               </span>
             ))}
-            <hr />
-            <span className={styles.label}><hr />Platforms:</span>{" "}
+            <br />
+            <span className={styles.label}><br />Platforms:</span>{" "}
             {character.platforms?.map((string, index) => (
               <span key={index}>
                 {string}

@@ -29,6 +29,9 @@ align-items: space-around;
   position: relative;
 margin: 0  1rem 0 1rem;
 z-index: 1;
+width: 90%;
+align-self: center;
+align-self: center;
 
  
 }

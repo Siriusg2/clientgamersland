@@ -43,18 +43,18 @@ function Navbar(props) {
         </div>
 
         <div className={styles.divButton}>
-          <NavLink to="/home">
-          <button className={styles.buttonAbout}>
-            Home</button>
-          </NavLink>
-        </div>
-        <div className={styles.divButton}>
           <NavLink to="/create">
           <button className={styles.button}>
             Create Game</button>
           </NavLink>
         </div>
       
+        <div className={styles.divButton}>
+          <NavLink to="/home">
+          <button className={styles.buttonAbout}>
+            Home</button>
+          </NavLink>
+        </div>
       </div>
     );
   }
@@ -100,6 +100,12 @@ function Navbar(props) {
           <NavLink to="/home" >
           <button className={styles.button}>
             Home</button>
+          </NavLink>
+        </div>
+        <div className={styles.divButton}>
+          <NavLink to="/about" >
+          <button className={styles.buttonAbout}>
+            About</button>
           </NavLink>
         </div>
         

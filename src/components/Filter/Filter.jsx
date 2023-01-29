@@ -2,10 +2,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as handlers from "./eventHandlers";
-import {
-  filterCardsbyGenres,
-  filterCardsbyOrigin,
-} from "../../redux/actions";
+
 import styles from "./Filter.module.css";
 
 const Filter = () => {

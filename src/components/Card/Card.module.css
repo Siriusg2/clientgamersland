@@ -70,7 +70,7 @@
 .label {
   color: black;
   font-family: 'Press Start 2p';
-  font-size: .6rem;
+  font-size: 60%;
   text-align: center;
   line-height:1.5;
   /* text-shadow: -.1vw -.1vw black, .1vw .1vw black; */
@@ -83,13 +83,13 @@ top: 12rem
 .genres {
   color: goldenrod;
   font-family: 'Press Start 2p';
-  font-size: .7rem;
+  font-size: 55%;
   
 
   text-shadow: -.1vw -.1vw white, .1vw .1vw black;
 position: absolute;
 left: .5rem;
-top: 14rem
+top: 15rem
  
  
 }
@@ -106,7 +106,7 @@ line-height: 1.5;
 .span{
   color: gray;
   font-family: 'Press Start 2p';
-  font-size: 45%;
+  font-size: 50%;
   
 }
 

@@ -8,6 +8,8 @@ import validate from './eventHandlers/validate';
 import styles from './Form.module.css';
 import Bgvideo from '../Bgvideo/Bgvideo';
 import landingvideo from '../../bgvideos/form.mp4';
+import errorimage from '../../bgvideos/bmosad.gif';
+import noerrorimage from '../../bgvideos/bmohappy.gif';
 
 function Form() {
   const history = useHistory();
@@ -35,164 +37,195 @@ function Form() {
             onSubmit={(e) => dispatch(handleSubmit(e, form, errors, history))}
             onChange={(e) => handleChange(e, setErrors, setForm, form)}
           >
-            <label htmlFor="name">
-              Name:
-            </label>
-            <br />
-            <input
-              placeholder="Name"
-              type="text"
-              id="name"
-              name="name"
-              autoComplete="off"
-            />
+            <div className={styles.divInputs}>
+              <label htmlFor="name">
+                Name:
+              </label>
+              <br />
+              <input
+                className={styles.inputs}
+                placeholder="Name"
+                type="text"
+                id="name"
+                name="name"
+                autoComplete="off"
+                value={form.name}
+              />
 
-            <br />
-            <label htmlFor="description">
-              Description:
-            </label>
-            <br />
-            <textarea
-              name="description"
-              placeholder="Description..."
-              id="description"
-              cols="30"
-              rows="3"
-            />
+              <br />
+              <label htmlFor="description">
+                Description:
+              </label>
+              <br />
+              <textarea
+                name="description"
+                placeholder="Description..."
+                id="description"
+                cols="30"
+                rows="3"
+                value={form.description}
+              />
 
-            <br />
-            <label htmlFor="launch_date">
-              Release Date:
-            </label>
-            <br />
-            <input
-              name="launch_date"
-              type="date"
-              id="date"
-              required
-            />
+              <br />
+              <label htmlFor="launch_date">
+                Release Date:
+              </label>
+              <br />
+              <input
+                className={styles.inputs}
+                name="launch_date"
+                type="date"
+                id="date"
+                required
+                value={form.launch_date}
+              />
 
-            <br />
-            <label htmlFor="rating">
-              Rating:
-            </label>
-            <br />
-            <input
-              name="rating"
-              placeholder="Rate from 1 to 5"
-              type="tel"
-              id="rating"
-              maxLength="1"
-              autoComplete="off"
-            />
-            <br />
+              <br />
+              <label htmlFor="rating">
+                Rating:
+              </label>
+              <br />
+              <input
+                className={styles.inputs}
+                name="rating"
+                placeholder="Rate from 1 to 5"
+                type="tel"
+                id="rating"
+                maxLength="1"
+                autoComplete="off"
+                value={form.rating}
+              />
+              <br />
+            </div>
+            <div className={styles.divGenres}>
+              <label>
+                Genres:
+              </label>
 
-            <label>
-              Genres:
-            </label>
+              <div id="genres" className={styles.checkContainer}>
+                {genres?.map((genre) => (
+                  <div id={genre.name} key={genre.id} className={styles.check}>
+                    <label htmlFor={genre.name}>{genre.name}</label>
+                    <input
+                      key={genre.id}
+                      name={genre.name}
+                      value={genre.id}
+                      type="checkbox"
+                      id={genre.id}
+                      checked={form.genres.includes(parseInt(genre.id, 10))}
+                    />
+                  </div>
+                ))}
+              </div>
+              <br />
 
-            <div id="genres">
-              {genres?.map((genre) => (
-                <div id={genre.name} key={genre.id}>
+            </div>
+            <div className={styles.divPlatforms}>
+              <label>
+                Platforms:
+              </label>
+
+              <div id="platforms" className={styles.checkContainer}>
+                <div className={styles.check}>
+                  <label htmlFor="PC">PC</label>
                   <input
-                    key={genre.id}
-                    name={genre.name}
-                    value={genre.id}
+                    name="PC"
                     type="checkbox"
-                    id={genre.id}
-                    checked={form.genres.includes(parseInt(genre.id, 10))}
+                    id="PC"
+                    checked={form.platforms.includes('PC')}
                   />
-                  <label htmlFor={genre.name}>{genre.name}</label>
                 </div>
-              ))}
-            </div>
-            <br />
-            <label>
-              Platforms:
-            </label>
+                <div className={styles.check}>
+                  <label htmlFor="iOS">iOS</label>
+                  <input
+                    name="iOS"
+                    type="checkbox"
+                    id="iOS"
+                    checked={form.platforms.includes('iOS')}
+                  />
+                </div>
+                <div className={styles.check}>
+                  <label htmlFor="Android">Android</label>
+                  <input
+                    name="Android"
+                    type="checkbox"
+                    id="Android"
+                    checked={form.platforms.includes('Android')}
+                  />
+                </div>
+                <div className={styles.check}>
+                  <label htmlFor="macOS">macOS</label>
+                  <input
+                    name="macOS"
+                    type="checkbox"
+                    id="macOS"
+                    checked={form.platforms.includes('macOS')}
+                  />
+                </div>
+                <div className={styles.check}>
+                  <label htmlFor="PlayStation 4">PlayStation 4</label>
+                  <input
+                    name="PlayStation 4"
+                    type="checkbox"
+                    id="PlayStation 4"
+                    checked={form.platforms.includes('PlayStation 4')}
+                  />
+                </div>
+                <div className={styles.check}>
+                  <label htmlFor="PlayStation 5">PlayStation 5</label>
+                  <input
+                    name="PlayStation 5"
+                    type="checkbox"
+                    id="PlayStation 5"
+                    checked={form.platforms.includes('PlayStation 5')}
+                  />
+                </div>
+                <div className={styles.check}>
+                  <label htmlFor="XBOX">XBOX</label>
+                  <input
+                    name="XBOX"
+                    type="checkbox"
+                    id="XBOX"
+                    checked={form.platforms.includes('XBOX')}
+                  />
+                </div>
+                <div className={styles.check}>
+                  <label htmlFor="PS Vita">PS Vita</label>
+                  <input
+                    name="PS Vita"
+                    type="checkbox"
+                    id="PS Vita"
+                    checked={form.platforms.includes('PS Vita')}
+                  />
+                </div>
+              </div>
+              <br />
 
-            <div id="platforms">
-              <div>
-                <input
-                  name="PC"
-                  type="checkbox"
-                  id="PC"
-                  checked={form.platforms.includes('PC')}
-                />
-                <label htmlFor="PC">PC</label>
+              <div className={styles.divbuttons}>
+                <button type="submit" className={styles.button}>Create</button>
+
+                <button
+                  type="button"
+                  className={styles.buttonReset}
+                  onClick={() => setForm({
+                    name: '',
+                    description: '',
+                    launch_date: '',
+                    rating: 0,
+                    platforms: [],
+                    genres: [],
+                  })}
+                >
+                  Reset
+
+                </button>
               </div>
-              <div>
-                <input
-                  name="iOS"
-                  type="checkbox"
-                  id="iOS"
-                  checked={form.platforms.includes('iOS')}
-                />
-                <label htmlFor="iOS">iOS</label>
-              </div>
-              <div>
-                <input
-                  name="Android"
-                  type="checkbox"
-                  id="Android"
-                  checked={form.platforms.includes('Android')}
-                />
-                <label htmlFor="Android">Android</label>
-              </div>
-              <div>
-                <input
-                  name="macOS"
-                  type="checkbox"
-                  id="macOS"
-                  checked={form.platforms.includes('macOS')}
-                />
-                <label htmlFor="macOS">macOS</label>
-              </div>
-              <div>
-                <input
-                  name="PlayStation 4"
-                  type="checkbox"
-                  id="PlayStation 4"
-                  checked={form.platforms.includes('PlayStation 4')}
-                />
-                <label htmlFor="PlayStation 4">PlayStation 4</label>
-              </div>
-              <div>
-                <input
-                  name="PlayStation 5"
-                  type="checkbox"
-                  id="PlayStation 5"
-                  checked={form.platforms.includes('PlayStation 5')}
-                />
-                <label htmlFor="PlayStation 5">PlayStation 5</label>
-              </div>
-              <div>
-                <input
-                  name="XBOX"
-                  type="checkbox"
-                  id="XBOX"
-                  checked={form.platforms.includes('XBOX')}
-                />
-                <label htmlFor="XBOX">XBOX</label>
-              </div>
-              <div>
-                <input
-                  name="PS Vita"
-                  type="checkbox"
-                  id="PS Vita"
-                  checked={form.platforms.includes('PS Vita')}
-                />
-                <label htmlFor="PS Vita">PS Vita</label>
-              </div>
-            </div>
-            <br />
-            <div>
-              <button type="submit">Create</button>
             </div>
           </form>
 
         </div>
         <div className={styles.divErrors}>
+
           <div>
             {errors.name && (
             <>
@@ -253,6 +286,14 @@ function Form() {
           </div>
           {' '}
           <div>
+            {errors.genres && (
+            <p>
+              {errors.genres}
+              {' '}
+            </p>
+            )}
+          </div>
+          <div>
             {errors.platforms && (
             <p>
               {errors.platforms}
@@ -260,7 +301,13 @@ function Form() {
             </p>
             )}
           </div>
+          <div className={styles.divImage}>
+            {' '}
+            {Object.values(errors).length ? <img alt="error" src={errorimage} /> : <img alt="noerror" src={noerrorimage} /> }
+            {' '}
+          </div>
         </div>
+
       </div>
 
     </>

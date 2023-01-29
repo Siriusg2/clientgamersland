@@ -20,6 +20,7 @@ export const handleSubmit = (e, form, errors, history) => async (dispatch) => {
     } else {
       history.push('/home');
       alert(`Game ${form.name} was created successfully`);
+      window.location.reload();
     }
   } catch (error) {
     alert(error.message);

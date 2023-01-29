@@ -1,0 +1,112 @@
+.container {
+    display: flex;
+  flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    align-content: flex-end;
+  background-color: lightgrey;
+    width: 47%;
+  position: absolute;
+  height: 35rem;
+  margin-top: 7rem;
+  margin-left: 20rem;
+  border-radius: 1rem;
+  
+  
+  }
+  
+  .divDetailtext {
+    text-align: left;
+    width: 49%;
+    height: 49%;
+    margin: .3rem;
+    background-color: lightgray;
+    border-radius: 7px;
+    box-shadow: .2em .2em .2em .2em gray;
+    transition: 1000ms;
+    overflow: auto;
+    align-self: flex-start;
+   
+  }
+  
+  
+  
+  .divDescription {
+   width: 98%;
+    height: 49%;
+    
+    margin: .4rem;
+    background-color: lightgray;
+    border-radius: 7px;
+    box-shadow: 0 .2em gray;
+  align-self: flex-end;
+    transition: 1000ms;
+    text-align: justify;
+    overflow: auto;
+    box-shadow: .2em .2em .2em .2em gray;
+  
+  }
+  
+  .img {
+    width: 45%;
+    height: 47%;
+    margin: .4rem;
+  
+      border-radius: 10px;
+      position: absolute;
+      align-self: flex-end;
+      margin-left: 0rem;
+      box-shadow: .2em .2em .2em .2em black;
+  
+  
+  }
+  
+  .p{
+    /* font-family: 'Press Start 2p';  */
+    color: black;
+    line-height: 1.5;
+    font-size: 80%;
+    line-height: 1.5;
+    padding: 1rem;
+    /* text-shadow: -.1vw -.1vw white, .1vw .1vw black; */
+  }
+  
+  .h3Info {
+  
+    font-family: 'Press Start 2p'; 
+    color: black;
+    line-height: 1.2;
+    font-size: .6rem;
+    opacity: 1;
+    /* text-shadow: -.1vw -.1vw white, .1vw .1vw black; */
+  }
+  
+  .label {
+    color: goldenrod;
+    font-family: 'Press Start 2p';
+    font-size: .6rem;
+    text-align: center;
+    line-height:1.5;
+    
+    text-shadow: -.1vw -.1vw black, .1vw .1vw black;
+  }
+  
+  hr{
+      color: lightgray;
+  }
+  
+  @media (max-width: 768px) {
+    .divDetailtext {
+      width: 80%;
+      margin-left: 10%;
+      margin-top: 5rem;
+    }
+  
+    .divDescription {
+      width: 80%;
+      flex-basis: 55rem;
+      margin-left: 10%;
+      margin-top: -5rem;
+    }
+  }
+  

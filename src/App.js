@@ -11,6 +11,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import Detail from './components/Detail/Detail';
 import Form from './components/Form/Form';
 import Cards from './components/Cards/Cards';
+import About from './components/About/About';
 
 function App() {
   const dispatch = useDispatch();
@@ -28,6 +29,7 @@ function App() {
           <Route exact path="/home" component={Cards} />
           <Route exact path="/detail/:id" component={Detail} />
           <Route exact path="/create" component={Form} />
+          <Route exact path="/about" component={About} />
         </Switch>
       </Router>
     </div>
