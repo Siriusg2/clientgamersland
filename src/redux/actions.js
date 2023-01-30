@@ -12,19 +12,42 @@ export const GET_GENRES = 'GET_GENRES';
 export const GET_GAMES_BY_NAME = 'GET_GAMES_BY_NAME';
 export const SET_FILTER = 'SET_FILTER';
 export const RESET_FILTER = 'RESET_FILTER';
-export const CREATE_VIDEOGAME = 'CREATE_VIDEOGAME';
+export const GET_GAME_DETAILS = 'GET_GAME_DETAILS';
+export const RESET_GAME_DETAILS = 'RESET_GAME_DETAILS';
 
-export const createGame = (game) => async (dispatch) => {
+export const createGame = async (game) => {
   try {
     const response = await axios.post('/videogames', game);
 
-    return typeof response.data !== 'string'
-      ? dispatch({ type: CREATE_VIDEOGAME, payload: response.data })
-      : response.data;
+    return typeof response.data !== 'string' ? null : alert(response.data);
   } catch (error) {
     alert(error.message);
   }
 };
+export const deleteGame = async (id) => {
+  try {
+    const response = await axios.delete(`/videogames/delete/${id}`);
+
+    return typeof response.data !== 'string' ? alert(response.data) : alert(response.data);
+  } catch (error) {
+    alert(error.message);
+  }
+};
+
+export const getGameDetail = (id) => async (dispatch) => {
+  try {
+    const response = await axios.get(`/videogames/${id}`);
+
+    return typeof response.data !== 'string'
+      ? dispatch({ type: GET_GAME_DETAILS, payload: response.data })
+      : alert(response.data);
+  } catch (error) {
+    alert(error.message);
+  }
+};
+export const resetGameDetails = () => ({
+  type: RESET_GAME_DETAILS,
+});
 
 export const getGames = () => async (dispatch) => {
   try {
@@ -44,8 +67,7 @@ export const getGenres = () => async (dispatch) => {
 };
 export const getGamesByName = (word) => async (dispatch) => {
   try {
-    const response = await axios.get(
-      `/videogames?name=${word}`);
+    const response = await axios.get(`/videogames?name=${word}`);
     dispatch({ type: GET_GAMES_BY_NAME, payload: response.data });
   } catch (error) {
     alert(error.message);

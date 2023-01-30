@@ -5,7 +5,7 @@
 import validate from './validate';
 import { createGame } from '../../../redux/actions';
 
-export const handleSubmit = (e, form, errors, history) => async (dispatch) => {
+export const handleSubmit = async (e, form, errors, history) => {
   e.preventDefault();
   validate(form);
 
@@ -13,13 +13,13 @@ export const handleSubmit = (e, form, errors, history) => async (dispatch) => {
     return alert('You must correct the mistakes');
   }
   try {
-    const result = await dispatch(createGame(form));
+    const result = await (createGame(form));
 
     if (typeof result === 'string') {
       alert(result);
     } else {
-      history.push('/home');
       alert(`Game ${form.name} was created successfully`);
+      history.push('/home');
       window.location.reload();
     }
   } catch (error) {

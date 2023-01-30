@@ -8,17 +8,16 @@ import {
   SORT_BY_NAME,
   SORT_BY_RATING,
   SET_FILTER,
-
-  CREATE_VIDEOGAME,
+  GET_GAME_DETAILS,
+  RESET_GAME_DETAILS,
 
 } from './actions';
 
 const initialState = {
-  myFavorites: [],
-  allMyFavorites: [],
   allCharacters: [],
   gameGenres: [],
   gamesFiltered: [],
+  gameDetails: {},
 
 };
 
@@ -30,7 +29,9 @@ const reducer = (state = initialState, action) => {
         allCharacters: action.payload,
         gamesFiltered: action.payload,
       };
-
+    case GET_GAME_DETAILS: return {
+      ...state, gameDetails: action.payload,
+    };
     case GET_GENRES:
       return {
         ...state,
@@ -41,6 +42,10 @@ const reducer = (state = initialState, action) => {
         ...state,
         allCharacters: action.payload,
         gamesFiltered: action.payload,
+      };
+    case RESET_GAME_DETAILS:
+      return {
+        ...state, gameDetails: {},
       };
 
     case SORT_BY_NAME:
@@ -144,13 +149,6 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         gamesFiltered: state.allCharacters.filter((game) => game.genres.includes(action.payload)),
-      };
-
-    case CREATE_VIDEOGAME:
-      return {
-        ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-        gamesFiltered: [...state.gamesFiltered, action.payload],
       };
 
     default:

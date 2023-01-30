@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { handleChange } from './eventHandlers/handleChange';
 import { handleSubmit } from './eventHandlers/handleSubmit';
 import validate from './eventHandlers/validate';
@@ -13,7 +13,7 @@ import noerrorimage from '../../bgvideos/bmohappy.gif';
 
 function Form() {
   const history = useHistory();
-  const [errors, setErrors] = useState({ form: 'Must complete the form' });
+  const [errors, setErrors] = useState({ });
   const genres = useSelector((state) => state.gameGenres);
   const [form, setForm] = useState({
     name: '',
@@ -23,7 +23,7 @@ function Form() {
     platforms: [],
     genres: [],
   });
-  const dispatch = useDispatch();
+
   useEffect(() => {
     setErrors(validate(form));
   }, [form]);
@@ -34,7 +34,7 @@ function Form() {
       <div className={styles.container}>
         <div className={styles.divForm}>
           <form
-            onSubmit={(e) => dispatch(handleSubmit(e, form, errors, history))}
+            onSubmit={(e) => (handleSubmit(e, form, errors, history))}
             onChange={(e) => handleChange(e, setErrors, setForm, form)}
           >
             <div className={styles.divInputs}>

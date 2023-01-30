@@ -7,8 +7,8 @@ flex-direction: column;
 background-color: lightgrey;
   width: 47%;
 position: absolute;
-height: 35rem;
-margin-top: 7rem;
+height: 40rem;
+margin-top: 5rem;
 margin-left: 2rem;
 border-radius: 1rem;
 
@@ -90,6 +90,65 @@ align-self: flex-end;
   line-height:1.5;
   
   text-shadow: -.1vw -.1vw white, .1vw .1vw black;
+}
+
+.button {
+	text-align: center;
+	display: inline-block;
+
+	  font-weight: bold;
+	  padding: 1vw ;
+	  background-color: rgb(52, 226, 52);
+	  text-shadow: -1px -1px black, 1px 1px white;
+	  color: white;
+	  -webkit-border-radius: 7px;
+	  -moz-border-radius: 7px;
+	  -o-border-radius: 7px;
+	  border-radius: 7px;
+	  box-shadow: 0 .2em gray; 
+	  cursor: pointer;
+	  font-size: 1vw;
+	  font-family: 'Press Start 2p';
+}
+
+.button:active {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+  color: white;
+}
+.divButton {
+  display: flex;
+  flex-direction: row wrap;
+  justify-content: space-around;
+  width: 100%;
+
+}
+
+.buttonReset {
+	text-align: center;
+	display: inline-block;
+
+	  font-weight: bold;
+	  padding: 1vw  ;
+	  background-color: red;
+	  text-shadow: -1px -1px black, 1px 1px white;
+	  color: white;
+	  -webkit-border-radius: 7px;
+	  -moz-border-radius: 7px;
+	  -o-border-radius: 7px;
+	  border-radius: 7px;
+	  box-shadow: 0 .2em gray; 
+	  cursor: pointer;
+	  font-size: 1vw;
+	  font-family: 'Press Start 2p';
+}
+
+.buttonReset:active {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+  color: white;
 }
 
 hr{

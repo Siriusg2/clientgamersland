@@ -1,14 +1,19 @@
 /* eslint-disable */
 import { NavLink } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import styles from "./Card.module.css";
 import loading from "../..//bgvideos/loadingimage.gif"
+import { getGameDetail } from "../../redux/actions";
 
 
 function Card(props) {
+  const dispatch = useDispatch();
 
+  const handleClick = (id) => {
+    dispatch(getGameDetail(id));
+  };
 
-
-  return ( <NavLink to={`/detail/${props.id}`} style={{textDecoration:'none'}}>
+  return ( <NavLink to={`/detail/${props.id}`} onClick={()=>{ handleClick(props.id)}} style={{textDecoration:'none'}}>
     <div className={styles.divCard}>
       
 
