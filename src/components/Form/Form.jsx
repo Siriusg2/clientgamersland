@@ -38,9 +38,7 @@ function Form() {
             onChange={(e) => handleChange(e, setErrors, setForm, form)}
           >
             <div className={styles.divInputs}>
-              <label htmlFor="name">
-                Name:
-              </label>
+              <label htmlFor="name">Name:</label>
               <br />
               <input
                 className={styles.inputs}
@@ -53,9 +51,7 @@ function Form() {
               />
 
               <br />
-              <label htmlFor="description">
-                Description:
-              </label>
+              <label htmlFor="description">Description:</label>
               <br />
               <textarea
                 name="description"
@@ -67,9 +63,7 @@ function Form() {
               />
 
               <br />
-              <label htmlFor="launch_date">
-                Release Date:
-              </label>
+              <label htmlFor="launch_date">Release Date:</label>
               <br />
               <input
                 className={styles.inputs}
@@ -81,9 +75,7 @@ function Form() {
               />
 
               <br />
-              <label htmlFor="rating">
-                Rating:
-              </label>
+              <label htmlFor="rating">Rating:</label>
               <br />
               <input
                 className={styles.inputs}
@@ -98,9 +90,7 @@ function Form() {
               <br />
             </div>
             <div className={styles.divGenres}>
-              <label>
-                Genres:
-              </label>
+              <label>Genres:</label>
 
               <div id="genres" className={styles.checkContainer}>
                 {genres?.map((genre) => (
@@ -118,12 +108,9 @@ function Form() {
                 ))}
               </div>
               <br />
-
             </div>
             <div className={styles.divPlatforms}>
-              <label>
-                Platforms:
-              </label>
+              <label>Platforms:</label>
 
               <div id="platforms" className={styles.checkContainer}>
                 <div className={styles.check}>
@@ -202,7 +189,22 @@ function Form() {
               <br />
 
               <div className={styles.divbuttons}>
-                <button type="submit" className={styles.button}>Create</button>
+                {Object.keys(errors).length ? (
+                  <button
+                    type="submit"
+                    disabled
+                    className={styles.button}
+                  >
+                    Create
+                  </button>
+                ) : (
+                  <button
+                    type="submit"
+                    className={styles.button}
+                  >
+                    Create
+                  </button>
+                )}
 
                 <button
                   type="button"
@@ -217,40 +219,41 @@ function Form() {
                   })}
                 >
                   Reset
-
                 </button>
               </div>
             </div>
           </form>
-
         </div>
         <div className={styles.divErrors}>
-
+          <label>Form errors</label>
           <div>
             {errors.name && (
-            <>
-              <p>
-                -
-                {errors.name}
-                {' '}
-              </p>
-              <div>
-                {errors.genres && (
+              <>
                 <p>
-                  {errors.genres}
+                  ⛔
+                  {' '}
+                  {errors.name}
                   {' '}
                 </p>
-                )}
-              </div>
-
-            </>
+                <div>
+                  {errors.genres && (
+                  <p>
+                    ⛔
+                    {' '}
+                    {errors.genres}
+                    {' '}
+                  </p>
+                  )}
+                </div>
+              </>
             )}
           </div>
           {' '}
           <div>
             {errors.description && (
             <p>
-              -
+              ⛔
+              {' '}
               {errors.description}
               {' '}
             </p>
@@ -260,7 +263,8 @@ function Form() {
           <div>
             {errors.launch_date && (
             <p>
-              -
+              ⛔
+              {' '}
               {errors.launch_date}
               {' '}
             </p>
@@ -270,7 +274,8 @@ function Form() {
           <div>
             {errors.rating && (
             <p>
-              -
+              ⛔
+              {' '}
               {errors.rating}
               {' '}
             </p>
@@ -278,7 +283,8 @@ function Form() {
 
             {errors.rating_max_min && (
             <p>
-              -
+              ⛔
+              {' '}
               {errors.rating_max_min}
               {' '}
             </p>
@@ -288,6 +294,9 @@ function Form() {
           <div>
             {errors.genres && (
             <p>
+              {' '}
+              ⛔
+              {' '}
               {errors.genres}
               {' '}
             </p>
@@ -296,6 +305,9 @@ function Form() {
           <div>
             {errors.platforms && (
             <p>
+              {' '}
+              ⛔
+              {' '}
               {errors.platforms}
               {' '}
             </p>
@@ -303,13 +315,15 @@ function Form() {
           </div>
           <div className={styles.divImage}>
             {' '}
-            {Object.values(errors).length ? <img alt="error" src={errorimage} /> : <img alt="noerror" src={noerrorimage} /> }
+            {Object.values(errors).length ? (
+              <img alt="error" src={errorimage} />
+            ) : (
+              <img alt="noerror" src={noerrorimage} />
+            )}
             {' '}
           </div>
         </div>
-
       </div>
-
     </>
   );
 }

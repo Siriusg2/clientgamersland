@@ -84,7 +84,7 @@ const Detail = () => {
         <div className={styles.divDescription}>
         
             <span className={styles.label}>Game Description:</span>
-            <p>{character.description}</p></div>
+            <p className={styles.p}>{character.description}</p></div>
   
         </div>
    
