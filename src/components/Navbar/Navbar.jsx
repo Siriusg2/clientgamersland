@@ -116,6 +116,31 @@ function Navbar(props) {
   if (location.pathname === "/") {
     return null;
   }
+  return (
+    <div className={styles.container}>
+        <div className={styles.divButton}>
+          <NavLink to="/">
+          <button className={styles.buttonReset}>
+            To landing</button>
+          </NavLink>
+        </div>
+
+        <div className={styles.divButton}>
+          <NavLink to="/home" >
+          <button className={styles.button}>
+            Home</button>
+          </NavLink>
+        </div>
+        <div className={styles.divButton}>
+          <NavLink to="/about" >
+          <button className={styles.buttonAbout}>
+            About</button>
+          </NavLink>
+        </div>
+        
+      </div>
+  
+  );
 }
 
 export default Navbar;

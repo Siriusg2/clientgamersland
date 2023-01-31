@@ -14,21 +14,37 @@ export const SET_FILTER = 'SET_FILTER';
 export const RESET_FILTER = 'RESET_FILTER';
 export const GET_GAME_DETAILS = 'GET_GAME_DETAILS';
 export const RESET_GAME_DETAILS = 'RESET_GAME_DETAILS';
+export const SET_FORM_TO_UPDATE = 'SET_FORM_TO_UPDATE';
+export const CREATE_GAME = 'CREATE_GAME';
+export const UPDATE_GAME = 'UPDATE_GAME';
+export const DELETE_GAME = 'DELETE_GAME';
 
-export const createGame = async (game) => {
+export const createGame = (game) => async (dispatch) => {
   try {
     const response = await axios.post('/videogames', game);
 
-    return typeof response.data !== 'string' ? null : alert(response.data);
+    if (typeof response.data === 'object') dispatch({ type: CREATE_GAME, payload: response.data });
+    return response.data;
   } catch (error) {
     alert(error.message);
   }
 };
-export const deleteGame = async (id) => {
+export const updateGame = (game) => async (dispatch) => {
+  try {
+    const response = await axios.put(`/videogames/update/${game.id}`, game);
+    console.log(response.data);
+    return typeof response.data === 'object' ? dispatch({ type: UPDATE_GAME, payload: response.data }) : alert(response.data);
+  } catch (error) {
+    alert(error.message);
+  }
+};
+export const deleteGame = (id) => async (dispatch) => {
   try {
     const response = await axios.delete(`/videogames/delete/${id}`);
 
-    return typeof response.data !== 'string' ? alert(response.data) : alert(response.data);
+    if (response.status === 200) {
+      dispatch({ type: DELETE_GAME, payload: id });
+    } else return response;
   } catch (error) {
     alert(error.message);
   }
@@ -95,4 +111,8 @@ export const sortCardsbyName = (type) => ({
 export const setFilter = (filter) => ({
   type: SET_FILTER,
   payload: filter,
+});
+export const setFormToUpdate = () => ({
+  type: SET_FORM_TO_UPDATE,
+
 });

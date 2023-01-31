@@ -3,21 +3,24 @@
 import styles from "./Detail.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { resetGameDetails } from "../../redux/actions";
+import { resetGameDetails, resetIstoUpdate } from "../../redux/actions";
 import { useEffect } from "react";
 import { deleteGame } from "../../redux/actions";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import Loading from "../Loading/Loading"
+import { setFormToUpdate } from "../../redux/actions";
 
 
 const Detail = () => {
   const game = useSelector((state)=> state.gameDetails)
   const dispatch = useDispatch()
  const history = useHistory()
+ const location = useLocation()
 
 useEffect(()=>{
 return ()=>dispatch(resetGameDetails())
 }, [dispatch])
+
 
   if(Object.keys(game).length){
     if(typeof game.id === "string"){
@@ -68,14 +71,15 @@ return ()=>dispatch(resetGameDetails())
                 <span className={styles.label}>Game Description:</span>
                 <p className={styles.p}>{game.description}</p></div>
                 <div className={styles.divButton}>
-                <button className={styles.button}>
+                <button className={styles.button} onClick={()=> {dispatch(setFormToUpdate());
+               history.push('/create'); }}>
                 
                 Update</button>
                 <button className={styles.buttonReset} onClick={()=>{
-                  deleteGame(game.id);
+                  dispatch(deleteGame(game.id));
                
                   history.push('/home');
-                  window.location.reload();
+                
                 } }>
                 Delete</button></div>
             </div>

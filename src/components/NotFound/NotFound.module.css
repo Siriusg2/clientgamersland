@@ -1,4 +1,64 @@
-.divNotFound {
+.container {
+  padding: 0;
+  margin: 0;
+  background: black;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.notfound {
+  font-family: 'Press Start 2p'; 
+  margin-top: 20rem;
+  font-size: 8em;
   color: red;
-  font-size: 200px;
+  text-align: center;
+  animation-name: logoAnimation;
+    animation-duration: 2.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+}
+
+.button {
+	text-align: center;
+	display: inline-block;
+
+	  font-weight: bold;
+	  padding: 1vw ;
+	  background-color: rgb(52, 226, 52);
+	  text-shadow: -1px -1px black, 1px 1px white;
+	  color: white;
+	  -webkit-border-radius: 7px;
+	  -moz-border-radius: 7px;
+	  -o-border-radius: 7px;
+	  border-radius: 7px;
+	  box-shadow: 0 .2em gray; 
+	  cursor: pointer;
+	  font-size: 1vw;
+	  font-family: 'Press Start 2p';
+}
+
+.button:active {
+  box-shadow: none;
+  position: relative;
+  top: .2em;
+  color: white;
+}
+
+@keyframes logoAnimation {
+    0% {
+        transform: scale(1) rotateZ(0deg);
+
+    }
+
+    50% {
+        transform: scale(1.2) rotateZ(0deg);
+
+    }
+
+    100% {
+        transform: scale(1) rotateZ(0deg);
+
+    }
 }

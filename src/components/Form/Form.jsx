@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { React, useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { handleChange } from './eventHandlers/handleChange';
 import { handleSubmit } from './eventHandlers/handleSubmit';
 import validate from './eventHandlers/validate';
@@ -13,8 +13,11 @@ import noerrorimage from '../../bgvideos/bmohappy.gif';
 
 function Form() {
   const history = useHistory();
-  const [errors, setErrors] = useState({ });
   const genres = useSelector((state) => state.gameGenres);
+  const formDetail = useSelector((state) => state.gameDetails);
+  const dispatch = useDispatch();
+  const [isToUpdate, setIsToUpdate] = useState(false);
+  const [errors, setErrors] = useState({});
   const [form, setForm] = useState({
     name: '',
     description: '',
@@ -28,13 +31,30 @@ function Form() {
     setErrors(validate(form));
   }, [form]);
 
+  useEffect(() => {
+    if (Object.values(formDetail).length) {
+      setForm({
+        id: formDetail.id,
+        name: formDetail.name,
+        description: formDetail.description,
+        launch_date: formDetail.launch_date,
+        rating: formDetail.rating,
+        platforms: formDetail.platforms,
+        genres: genres
+          .filter((object) => formDetail.genres.includes(object.name))
+          .map((object) => object.id),
+      });
+      setIsToUpdate(true);
+    }
+  }, []);
+
   return (
     <>
       <Bgvideo video={landingvideo} />
       <div className={styles.container}>
         <div className={styles.divForm}>
           <form
-            onSubmit={(e) => (handleSubmit(e, form, errors, history))}
+            onSubmit={(e) => handleSubmit(e, form, history, isToUpdate, dispatch)}
             onChange={(e) => handleChange(e, setErrors, setForm, form)}
           >
             <div className={styles.divInputs}>
@@ -188,39 +208,69 @@ function Form() {
               </div>
               <br />
 
-              <div className={styles.divbuttons}>
-                {Object.keys(errors).length ? (
-                  <button
-                    type="submit"
-                    disabled
-                    className={styles.button}
-                  >
-                    Create
-                  </button>
-                ) : (
-                  <button
-                    type="submit"
-                    className={styles.button}
-                  >
-                    Create
-                  </button>
-                )}
+              {!isToUpdate ? (
+                <div className={styles.divbuttons}>
+                  {Object.keys(errors).length ? (
+                    <button
+                      type="submit"
+                      disabled
+                      className={styles.buttondisabled}
+                    >
+                      Create
+                    </button>
+                  ) : (
+                    <button type="submit" className={styles.button}>
+                      Create
+                    </button>
+                  )}
 
-                <button
-                  type="button"
-                  className={styles.buttonReset}
-                  onClick={() => setForm({
-                    name: '',
-                    description: '',
-                    launch_date: '',
-                    rating: 0,
-                    platforms: [],
-                    genres: [],
-                  })}
-                >
-                  Reset
-                </button>
-              </div>
+                  <button
+                    type="button"
+                    className={styles.buttonReset}
+                    onClick={() => setForm({
+                      name: '',
+                      description: '',
+                      launch_date: '',
+                      rating: 0,
+                      platforms: [],
+                      genres: [],
+                    })}
+                  >
+                    Reset
+                  </button>
+                </div>
+              ) : (
+                <div className={styles.divbuttons}>
+                  {Object.keys(errors).length ? (
+                    <button
+                      type="submit"
+                      disabled
+                      className={styles.buttondisabled}
+                    >
+                      Update
+                    </button>
+                  ) : (
+                    <button type="submit" className={styles.button}>
+                      Update
+                    </button>
+                  )}
+
+                  <button
+                    type="button"
+                    className={styles.buttonReset}
+                    onClick={() => setForm({
+                      name: '',
+                      description: '',
+                      launch_date: '',
+                      rating: 0,
+                      platforms: [],
+                      genres: [],
+                    })}
+                  >
+                    Reset
+                  </button>
+                </div>
+              )}
             </div>
           </form>
         </div>

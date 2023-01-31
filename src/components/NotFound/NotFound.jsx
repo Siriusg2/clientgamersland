@@ -1,13 +1,22 @@
 /* eslint-disable */
 
 import React from "react";
-import styles from "./NotFound.module.css";
-import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styles from "..//NotFound/NotFound.module.css";
+
 const NotFound = () => {
-  const location = useLocation();
-  return location.pathname === "/" ? (
-    <h1 className={styles.divNotFound}>no me encuentro</h1>
-  ) : null;
+  return (
+    
+      <div className={styles.container}>
+        <p className={styles.notfound}>GAME OVER</p>
+     
+        <NavLink to="/home" >
+          <button className={styles.button}>
+            Home</button>
+          </NavLink>
+        </div>
+    
+  );
 };
 
 export default NotFound;

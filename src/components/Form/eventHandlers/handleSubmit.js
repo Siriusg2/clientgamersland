@@ -3,26 +3,31 @@
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
 import validate from './validate';
-import { createGame } from '../../../redux/actions';
+import { createGame, updateGame } from '../../../redux/actions';
 
-export const handleSubmit = async (e, form, errors, history) => {
+export const handleSubmit = async (e, form, history, isToUpdate, dispatch) => {
   e.preventDefault();
   validate(form);
+  if (!isToUpdate) {
+    try {
+      const result = await dispatch((createGame(form)));
 
-  if (Object.values(errors).length) {
-    return alert('You must correct the mistakes');
-  }
-  try {
-    const result = await (createGame(form));
-
-    if (typeof result === 'string') {
-      alert(result);
-    } else {
-      alert(`Game ${form.name} was created successfully`);
-      history.push('/home');
-      window.location.reload();
+      if (typeof result === 'string') {
+        alert(result);
+      } else {
+        alert(`Game ${form.name} was created successfully`);
+        history.push('/home');
+      }
+    } catch (error) {
+      alert(error.message);
     }
-  } catch (error) {
-    alert(error.message);
+  } else {
+    try {
+      await dispatch(updateGame(form));
+
+      history.push('/home');
+    } catch (error) {
+      alert(error.message);
+    }
   }
 };

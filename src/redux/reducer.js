@@ -1,7 +1,9 @@
+/* eslint-disable no-case-declarations */
+/* eslint-disable eqeqeq */
+/* eslint-disable max-len */
 /* eslint-disable default-param-last */
 /* eslint-disable linebreak-style */
 import {
-
   GET_GENRES,
   GET_GAMES,
   GET_GAMES_BY_NAME,
@@ -10,7 +12,9 @@ import {
   SET_FILTER,
   GET_GAME_DETAILS,
   RESET_GAME_DETAILS,
-
+  CREATE_GAME,
+  UPDATE_GAME,
+  DELETE_GAME,
 } from './actions';
 
 const initialState = {
@@ -18,7 +22,6 @@ const initialState = {
   gameGenres: [],
   gamesFiltered: [],
   gameDetails: {},
-
 };
 
 const reducer = (state = initialState, action) => {
@@ -29,9 +32,12 @@ const reducer = (state = initialState, action) => {
         allCharacters: action.payload,
         gamesFiltered: action.payload,
       };
-    case GET_GAME_DETAILS: return {
-      ...state, gameDetails: action.payload,
-    };
+    case GET_GAME_DETAILS:
+      return {
+        ...state,
+        gameDetails: action.payload,
+      };
+
     case GET_GENRES:
       return {
         ...state,
@@ -43,11 +49,44 @@ const reducer = (state = initialState, action) => {
         allCharacters: action.payload,
         gamesFiltered: action.payload,
       };
+
     case RESET_GAME_DETAILS:
       return {
-        ...state, gameDetails: {},
+        ...state,
+        gameDetails: {},
       };
-
+    case CREATE_GAME:
+      return {
+        ...state,
+        allCharacters: [action.payload, ...state.allCharacters],
+        gamesFiltered: [action.payload, ...state.gamesFiltered],
+      };
+    case DELETE_GAME:
+      return {
+        ...state,
+        allCharacters: state.allCharacters.filter(
+          (game) => game.id !== action.payload,
+        ),
+        gamesFiltered: state.gamesFiltered.filter(
+          (game) => game.id !== action.payload,
+        ),
+      };
+    case UPDATE_GAME:
+      return {
+        ...state,
+        allCharacters: state.allCharacters.map((game) => {
+          if (game.id === action.payload.id) {
+            return action.payload;
+          }
+          return game;
+        }),
+        gamesFiltered: state.gamesFiltered.map((game) => {
+          if (game.id === action.payload.id) {
+            return action.payload;
+          }
+          return game;
+        }),
+      };
     case SORT_BY_NAME:
       if (action.payload === 'Ascending') {
         return {
