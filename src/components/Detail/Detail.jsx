@@ -46,7 +46,7 @@ return ()=>dispatch(resetGameDetails())
                 <span className={styles.label}> <br />Rating: </span>
                 {game.rating}
                 <br /> <span className={styles.label}><br />Released:</span>{" "}
-                {game.released}
+                {game.launch_date}
                 <br /> <span className={styles.label}> <br />Genres:</span>{" "}
                 {game.genres?.map((string, index) => (
                   <span key={index}>
@@ -107,16 +107,16 @@ return ()=>dispatch(resetGameDetails())
                 <span className={styles.label}><br />Name:</span> {game.name}
                 <br />
                 <span className={styles.label}> <br />Rating: </span>
-                {game.rating}
+                {game.rating ? game.rating : 1}
                 <br /> <span className={styles.label}><br />Released:</span>{" "}
-                {game.released}
+                {game.launch_date ? game.launch_date : "2023-01-31"}
                 <br /> <span className={styles.label}> <br />Genres:</span>{" "}
-                {game.genres?.map((string, index) => (
+                {game.genres.length ? game.genres.map((string, index) => (
                   <span key={index}>
                     {string}
                     {index !== game.genres.length - 1 ? ", " : ""}
                   </span>
-                ))}
+                )) : "UNKNOW"}
                 <br />
                 <span className={styles.label}><br />Platforms:</span>{" "}
                 {game.platforms?.map((string, index) => (

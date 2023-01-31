@@ -8,10 +8,8 @@ import styles from "./Filter.module.css";
 const Filter = () => {
   const genres = useSelector((state) => state.gameGenres);
   const dispatch = useDispatch();
-const [originFilter, setOriginFilter] = useState("")
-const [genreFilter, setgenreFilter] = useState("")
-  
-  // useEffect(() => {}, [dispatch, filterCardsbyGenres, filterCardsbyOrigin]);
+
+
   return (
     <div className={styles.container}>
       <div className={styles.filterOptions}>
@@ -21,6 +19,7 @@ const [genreFilter, setgenreFilter] = useState("")
           name="sortByGameName"
           className={styles.select}
           onChange={(e) => dispatch(handlers.handleSortByName(e))}
+        
         >
           <option key={"Default"} value="Default">
             Default
@@ -36,6 +35,7 @@ const [genreFilter, setgenreFilter] = useState("")
       <div className={styles.filterOptions}>
         <label className={styles.label}>Sort by game rating:</label>
         <select
+       
           id="sortByGameRating"
           name="order"
           className={styles.select}
@@ -60,8 +60,8 @@ const [genreFilter, setgenreFilter] = useState("")
           id="filterByGenre"
           name="gender"
           className={styles.select}
-          value={genreFilter}
-          onChange={(e) => dispatch(handlers.handleFilterByGenre(e,  setgenreFilter))}
+        
+          onChange={(e) => dispatch(handlers.handleFilterByGenre(e))}
         >
           <option key="all" value="all">
             All
@@ -80,8 +80,8 @@ const [genreFilter, setgenreFilter] = useState("")
           id="filterByorigin"
           name="origin"
           className={styles.select}
-          value={originFilter}
-          onChange={(e) => dispatch(handlers.handleFilterByOrigin(e,  setOriginFilter))}
+          
+          onChange={(e) => dispatch(handlers.handleFilterByOrigin(e))}
         >
           <option
             key="all"

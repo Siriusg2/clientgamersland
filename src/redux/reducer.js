@@ -91,68 +91,54 @@ const reducer = (state = initialState, action) => {
       if (action.payload === 'Ascending') {
         return {
           ...state,
-          allCharacters: state.allCharacters.slice(0).sort((a, b) => {
-            if (a.name < b.name) {
+          gamesFiltered: [...state.gamesFiltered].sort((a, b) => {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
               return -1;
             }
-            if (a.name > b.name) {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
               return 1;
             }
             return 0;
           }),
-          gamesFiltered: state.gamesFiltered.slice(0).sort((a, b) => {
-            if (a.name < b.name) {
+        };
+      } if (action.payload === 'Descending') {
+        return {
+          ...state,
+          gamesFiltered: [...state.gamesFiltered].sort((a, b) => {
+            if (a.name.toLowerCase() > b.name.toLowerCase()) {
               return -1;
             }
-            if (a.name > b.name) {
+            if (a.name.toLowerCase() < b.name.toLowerCase()) {
               return 1;
             }
             return 0;
           }),
         };
       }
+
       return {
         ...state,
-        allCharacters: state.allCharacters.slice(0).sort((a, b) => {
-          if (a.name > b.name) {
-            return -1;
-          }
-          if (a.name < b.name) {
-            return 1;
-          }
-          return 0;
-        }),
-        gamesFiltered: state.gamesFiltered.slice(0).sort((a, b) => {
-          if (a.name > b.name) {
-            return -1;
-          }
-          if (a.name < b.name) {
-            return 1;
-          }
-          return 0;
-        }),
+        gamesFiltered: state.gamesFiltered,
       };
 
     case SORT_BY_RATING:
       if (action.payload === 'Ascending') {
         return {
           ...state,
-          allCharacters: state.allCharacters
-            .slice(0)
-            .sort((a, b) => a.rating - b.rating),
-          gamesFiltered: state.gamesFiltered
-            .slice(0)
+          gamesFiltered: [...state.gamesFiltered]
             .sort((a, b) => a.rating - b.rating),
         };
       }
+      if (action.payload === 'Descending') {
+        return {
+          ...state,
+          gamesFiltered: [...state.gamesFiltered]
+
+            .sort((a, b) => b.rating - a.rating),
+        };
+      }
       return {
-        ...state,
-        allCharacters: state.allCharacters
-          .slice(0)
-          .sort((a, b) => b.rating - a.rating),
-        gamesFiltered: state.gamesFiltered
-          .slice(0)
-          .sort((a, b) => b.rating - a.rating),
+        ...state, gamesFiltered: state.gamesFiltered,
       };
 
     case SET_FILTER:
@@ -165,7 +151,7 @@ const reducer = (state = initialState, action) => {
           return {
             ...state,
 
-            gamesFiltered: state.allCharacters.filter(
+            gamesFiltered: [...state.allCharacters].filter(
               (game) => typeof game.id === 'string',
             ),
           };
@@ -174,7 +160,7 @@ const reducer = (state = initialState, action) => {
           return {
             ...state,
 
-            gamesFiltered: state.allCharacters.filter(
+            gamesFiltered: [...state.allCharacters].filter(
               (game) => typeof game.id === 'number',
             ),
           };
@@ -187,7 +173,7 @@ const reducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        gamesFiltered: state.allCharacters.filter((game) => game.genres.includes(action.payload)),
+        gamesFiltered: [...state.allCharacters].filter((game) => game.genres.includes(action.payload)),
       };
 
     default:

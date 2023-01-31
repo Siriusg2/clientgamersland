@@ -23,7 +23,7 @@ function Card(props) {
         <span className={styles.label }>{props.name}</span>
      
 <label className={styles.genres}>Genres:</label><div className={styles.divGeres}>
-      {props.genres ?  props.genres.map((string, index) => (
+      {props.genres.length ?  props.genres.map((string, index) => (
               <span key={index} className={styles.span}>
                  {string} 
                 {index !== props.genres.length - 1 ? " " : ""}
