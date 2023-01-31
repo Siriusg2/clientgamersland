@@ -187,7 +187,7 @@ const reducer = (state = initialState, action) => {
       }
       return {
         ...state,
-        gamesFiltered: state.allCharacters.filter((game) => game.genres.includes(state.gameGenres.find((genre) => genre.name === action.payload))),
+        gamesFiltered: state.allCharacters.filter((game) => game.genres.includes(action.payload)),
       };
 
     default:
