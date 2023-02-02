@@ -21,9 +21,7 @@ export default function Cards(props) {
   let currentCards;
 
   if (Array.isArray(allCharacters)) {
-
-      currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);
-    
+    currentCards = gamesFiltered.slice(indexOfFirstCard, indexOfLastCard);
   } else {
     currentCards = [];
   }
@@ -55,7 +53,7 @@ export default function Cards(props) {
           />
         </div>
         <div className={styles.divCards}>
-          {currentCards?.map((card) => (
+          {gamesFiltered?.map((card) => (
             <Card
               key={card.id}
               id={card.id}
@@ -67,7 +65,7 @@ export default function Cards(props) {
         </div>
         <div className={styles.divPaginationbottom}> </div>
       </div>
-    ) : !currentCards.length  ? (
+    ) : !currentCards.length ? (
       <div className={styles.container}>
         <Bgvideo video={cardsvideo} />
         <SearchBar />
