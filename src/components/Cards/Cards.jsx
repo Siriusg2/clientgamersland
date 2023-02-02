@@ -53,7 +53,7 @@ export default function Cards(props) {
           />
         </div>
         <div className={styles.divCards}>
-          {gamesFiltered?.map((card) => (
+          {currentCards?.map((card) => (
             <Card
               key={card.id}
               id={card.id}
