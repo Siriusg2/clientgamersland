@@ -32,7 +32,6 @@ export const createGame = (game) => async (dispatch) => {
 export const updateGame = (game) => async (dispatch) => {
   try {
     const response = await axios.put(`/videogames/update/${game.id}`, game);
-    console.log(response.data);
     return typeof response.data === 'object' ? dispatch({ type: UPDATE_GAME, payload: response.data }) : alert(response.data);
   } catch (error) {
     alert(error.message);

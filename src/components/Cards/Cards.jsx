@@ -31,7 +31,7 @@ export default function Cards(props) {
   };
   useEffect(() => {
     setCurrentPage(1);
-  }, []);
+  }, [gamesFiltered]);
   if (!allCharacters.length) {
     return (
       <>

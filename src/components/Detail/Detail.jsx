@@ -6,20 +6,24 @@ import { useSelector, useDispatch } from "react-redux";
 import { resetGameDetails, resetIstoUpdate } from "../../redux/actions";
 import { useEffect } from "react";
 import { deleteGame } from "../../redux/actions";
-import { useHistory, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import Loading from "../Loading/Loading"
 import { setFormToUpdate } from "../../redux/actions";
 
 
 const Detail = () => {
-  const game = useSelector((state)=> state.gameDetails)
+  let game = useSelector((state)=> state.gameDetails)
   const dispatch = useDispatch()
  const history = useHistory()
- const location = useLocation()
+
+
+// useEffect(()=>{
+// return ()=>dispatch(resetGameDetails())
+// }, [dispatch])
 
 useEffect(()=>{
-return ()=>dispatch(resetGameDetails())
-}, [dispatch])
+  return () => {game = {}}
+}, [])
 
 
   if(Object.keys(game).length){

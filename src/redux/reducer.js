@@ -19,8 +19,8 @@ import {
 
 const initialState = {
   allCharacters: [],
-  gameGenres: [],
   gamesFiltered: [],
+  gameGenres: [],
   gameDetails: {},
 };
 
