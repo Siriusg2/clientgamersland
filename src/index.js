@@ -10,8 +10,9 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import store from './redux/store';
 
-// axios.defaults.baseURL = 'http://localhost:3001';
-axios.defaults.baseURL = 'https://apigamersland.up.railway.app/';
+const { REACT_APP_API_URL_LOCAL, REACT_APP_API_URL_DEPLOY } = process.env;
+
+axios.defaults.baseURL = REACT_APP_API_URL_LOCAL || REACT_APP_API_URL_DEPLOY;
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
