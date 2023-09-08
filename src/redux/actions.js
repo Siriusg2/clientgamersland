@@ -32,7 +32,9 @@ export const createGame = (game) => async (dispatch) => {
 export const updateGame = (game) => async (dispatch) => {
   try {
     const response = await axios.put(`/videogames/update/${game.id}`, game);
-    return typeof response.data === 'object' ? dispatch({ type: UPDATE_GAME, payload: response.data }) : alert(response.data);
+    return typeof response.data === 'object'
+      ? dispatch({ type: UPDATE_GAME, payload: response.data })
+      : alert(response.data);
   } catch (error) {
     alert(error.message);
   }
@@ -70,6 +72,7 @@ export const getGames = () => async (dispatch) => {
     dispatch({ type: GET_GAMES, payload: response.data });
   } catch (error) {
     alert(error.message);
+    console.log(error);
   }
 };
 export const getGenres = () => async (dispatch) => {
@@ -113,5 +116,4 @@ export const setFilter = (filter) => ({
 });
 export const setFormToUpdate = () => ({
   type: SET_FORM_TO_UPDATE,
-
 });
