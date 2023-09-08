@@ -1,35 +1,34 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
-import { React, useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { handleChange } from './eventHandlers/handleChange';
-import { handleSubmit } from './eventHandlers/handleSubmit';
-import validate from './eventHandlers/validate';
-import styles from './Form.module.css';
-import Bgvideo from '../Bgvideo/Bgvideo';
-import landingvideo from '../../bgvideos/form.mp4';
-import errorimage from '../../bgvideos/bmosad.gif';
-import noerrorimage from '../../bgvideos/bmohappy.gif';
+import { React, useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { handleChange } from './eventHandlers/handleChange'
+import { handleSubmit } from './eventHandlers/handleSubmit'
+import validate from './eventHandlers/validate'
+import styles from './Form.module.css'
+import Bgvideo from '../Bgvideo/Bgvideo'
+import landingvideo from '../../bgvideos/form.mp4'
+import errorimage from '../../bgvideos/bmosad.gif'
+import noerrorimage from '../../bgvideos/bmohappy.gif'
 
-function Form() {
-  const history = useHistory();
-  const genres = useSelector((state) => state.gameGenres);
-  const formDetail = useSelector((state) => state.gameDetails);
-  const dispatch = useDispatch();
-  const [isToUpdate, setIsToUpdate] = useState(false);
-  const [errors, setErrors] = useState({});
+function Form () {
+  const history = useHistory()
+  const genres = useSelector((state) => state.gameGenres)
+  const formDetail = useSelector((state) => state.gameDetails)
+  const dispatch = useDispatch()
+  const [isToUpdate, setIsToUpdate] = useState(false)
+  const [errors, setErrors] = useState({})
   const [form, setForm] = useState({
     name: '',
     description: '',
     launch_date: '',
     rating: 0,
     platforms: [],
-    genres: [],
-  });
+    genres: []
+  })
 
   useEffect(() => {
-    setErrors(validate(form));
-  }, [form]);
+    setErrors(validate(form))
+  }, [form])
 
   useEffect(() => {
     if (Object.values(formDetail).length) {
@@ -42,11 +41,11 @@ function Form() {
         platforms: formDetail.platforms,
         genres: genres
           .filter((object) => formDetail.genres.includes(object.name))
-          .map((object) => object.id),
-      });
-      setIsToUpdate(true);
+          .map((object) => object.id)
+      })
+      setIsToUpdate(true)
     }
-  }, []);
+  }, [])
 
   return (
     <>
@@ -208,9 +207,11 @@ function Form() {
               </div>
               <br />
 
-              {!isToUpdate ? (
+              {!isToUpdate
+                ? (
                 <div className={styles.divbuttons}>
-                  {Object.keys(errors).length ? (
+                  {Object.keys(errors).length
+                    ? (
                     <button
                       type="submit"
                       disabled
@@ -218,11 +219,12 @@ function Form() {
                     >
                       Create
                     </button>
-                  ) : (
+                      )
+                    : (
                     <button type="submit" className={styles.button}>
                       Create
                     </button>
-                  )}
+                      )}
 
                   <button
                     type="button"
@@ -233,15 +235,17 @@ function Form() {
                       launch_date: '',
                       rating: 0,
                       platforms: [],
-                      genres: [],
+                      genres: []
                     })}
                   >
                     Reset
                   </button>
                 </div>
-              ) : (
+                  )
+                : (
                 <div className={styles.divbuttons}>
-                  {Object.keys(errors).length ? (
+                  {Object.keys(errors).length
+                    ? (
                     <button
                       type="submit"
                       disabled
@@ -249,11 +253,12 @@ function Form() {
                     >
                       Update
                     </button>
-                  ) : (
+                      )
+                    : (
                     <button type="submit" className={styles.button}>
                       Update
                     </button>
-                  )}
+                      )}
 
                   <button
                     type="button"
@@ -264,13 +269,13 @@ function Form() {
                       launch_date: '',
                       rating: 0,
                       platforms: [],
-                      genres: [],
+                      genres: []
                     })}
                   >
                     Reset
                   </button>
                 </div>
-              )}
+                  )}
             </div>
           </form>
         </div>
@@ -365,17 +370,19 @@ function Form() {
           </div>
           <div className={styles.divImage}>
             {' '}
-            {Object.values(errors).length ? (
+            {Object.values(errors).length
+              ? (
               <img alt="error" src={errorimage} />
-            ) : (
+                )
+              : (
               <img alt="noerror" src={noerrorimage} />
-            )}
+                )}
             {' '}
           </div>
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Form;
+export default Form

@@ -1,7 +1,7 @@
 /* eslint-disable react/react-in-jsx-scope */
-import './Loading.css';
+import './Loading.css'
 
-export default function Loading() {
+export default function Loading () {
   return (
     <div className="container">
       <div className="dinosaur">
@@ -783,5 +783,5 @@ export default function Loading() {
         </div>
       </div>
     </div>
-  );
+  )
 }

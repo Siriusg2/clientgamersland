@@ -1,17 +1,17 @@
-import validate from './validate';
+import validate from './validate'
 
 export const handleChange = (e, setErrors, setForm, form) => {
   if (e.target.parentNode.parentNode.id === 'genres') {
     if (e.target.checked) {
       setForm((prevState) => ({
         ...prevState,
-        genres: [...form.genres, parseInt(e.target.value, 10)],
-      }));
+        genres: [...form.genres, parseInt(e.target.value, 10)]
+      }))
     } else {
       setForm((prevState) => ({
         ...prevState,
-        genres: form.genres.filter((x) => parseInt(e.target.value, 10) !== x),
-      }));
+        genres: form.genres.filter((x) => parseInt(e.target.value, 10) !== x)
+      }))
     }
   }
 
@@ -19,26 +19,26 @@ export const handleChange = (e, setErrors, setForm, form) => {
     if (e.target.checked) {
       setForm((prevState) => ({
         ...prevState,
-        platforms: [...form.platforms, e.target.name],
-      }));
+        platforms: [...form.platforms, e.target.name]
+      }))
     } else {
       setForm((prevState) => ({
         ...prevState,
-        platforms: form.platforms.filter((x) => e.target.name !== x),
-      }));
+        platforms: form.platforms.filter((x) => e.target.name !== x)
+      }))
     }
   }
   if (e.target.type !== 'checkbox') {
-    e.preventDefault();
+    e.preventDefault()
     setForm((prevState) => ({
       ...prevState,
-      [e.target.name]: e.target.value,
-    }));
+      [e.target.name]: e.target.value
+    }))
   }
   setErrors(
     validate({
       ...form,
-      [e.target.name]: e.target.value,
-    }),
-  );
-};
+      [e.target.name]: e.target.value
+    })
+  )
+}

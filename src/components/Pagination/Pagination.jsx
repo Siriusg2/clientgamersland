@@ -4,24 +4,25 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-array-index-key */
 
-import React from 'react';
-import styles from './Pagination.module.css';
+import React from 'react'
+import styles from './Pagination.module.css'
 
-export default function Pagination({
+export default function Pagination ({
   cardPerPage,
   totalCards,
   paginate,
-  currentPage,
+  currentPage
 }) {
   if (Math.ceil(totalCards / cardPerPage) < currentPage) {
-    paginate(1);
+    paginate(1)
   }
-  const pageNumbers = [];
+  const pageNumbers = []
   for (let i = 1; i <= Math.ceil(totalCards / cardPerPage); i++) {
-    pageNumbers.push(i);
+    pageNumbers.push(i)
   }
 
-  return totalCards > 15 ? (
+  return totalCards > 15
+    ? (
     <div className={styles.pagdiv}>
 
       <div className={styles.ul}>
@@ -33,19 +34,21 @@ export default function Pagination({
           {'<<'}
         </button>
         <div className={styles.divli}>
-          {pageNumbers.length > 1
-          && pageNumbers.map((p, i) => (p === currentPage ? (
+          {pageNumbers.length > 1 &&
+          pageNumbers.map((p, i) => (p === currentPage
+            ? (
             <button key={i} className={styles.pagbt} onClick={() => paginate(p)}>
               {p}
             </button>
 
-          ) : (
+              )
+            : (
 
             <button key={i} className={styles.pagbtn} onClick={() => paginate(p)}>
               {p}
             </button>
 
-          )))}
+              )))}
         </div>
         <button
 
@@ -57,5 +60,6 @@ export default function Pagination({
       </div>
 
     </div>
-  ) : null;
+      )
+    : null
 }

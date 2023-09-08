@@ -1,25 +1,25 @@
 /* eslint-disable react/react-in-jsx-scope */
-import './App.css';
+import './App.css'
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { useEffect } from 'react'
 
-import Navbar from './components/Navbar/Navbar';
-import { getGames, getGenres } from './redux/actions';
-import LandingPage from './components/LandingPage/LandingPage';
-import Detail from './components/Detail/Detail';
-import Form from './components/Form/Form';
-import Cards from './components/Cards/Cards';
-import About from './components/About/About';
-import NotFound from './components/NotFound/NotFound';
+import Navbar from './components/Navbar/Navbar'
+import { getGames, getGenres } from './redux/actions'
+import LandingPage from './components/LandingPage/LandingPage'
+import Detail from './components/Detail/Detail'
+import Form from './components/Form/Form'
+import Cards from './components/Cards/Cards'
+import About from './components/About/About'
+import NotFound from './components/NotFound/NotFound'
 
-function App() {
-  const dispatch = useDispatch();
+function App () {
+  const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getGames());
-    dispatch(getGenres());
-  }, []);
+    dispatch(getGames())
+    dispatch(getGenres())
+  }, [])
   return (
     <div className="App">
       <Router>
@@ -35,7 +35,7 @@ function App() {
         </Switch>
       </Router>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

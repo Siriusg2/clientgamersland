@@ -3,10 +3,10 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable react/react-in-jsx-scope */
 /* eslint-disable linebreak-style */
-import styles from './Bgvideo.module.css';
+import styles from './Bgvideo.module.css'
 // import videoBG from './landing.mp4';
 
-function Bgvideo(props) {
+function Bgvideo (props) {
   return (
     <div className={styles.video_background}>
       <div className={styles.video_foreground}>
@@ -18,6 +18,6 @@ function Bgvideo(props) {
         />
       </div>
     </div>
-  );
+  )
 }
-export default Bgvideo;
+export default Bgvideo

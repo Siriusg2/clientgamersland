@@ -24,9 +24,11 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins: [
-    'react'
-  ],
-  rules: {
+  plugins: ['react'],
+
+  settings: {
+    react: {
+      version: 'detect'
+    }
   }
 }
