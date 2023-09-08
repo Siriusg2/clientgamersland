@@ -1,5 +1,5 @@
-import { React, useState, useEffect } from 'react'
-import { useHistory } from 'react-router-dom'
+import {  useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { handleChange } from './eventHandlers/handleChange'
 import { handleSubmit } from './eventHandlers/handleSubmit'
@@ -11,7 +11,7 @@ import errorimage from '../../bgvideos/bmosad.gif'
 import noerrorimage from '../../bgvideos/bmohappy.gif'
 
 function Form () {
-  const history = useHistory()
+  const history = useNavigate()
   const genres = useSelector((state) => state.gameGenres)
   const formDetail = useSelector((state) => state.gameDetails)
   const dispatch = useDispatch()

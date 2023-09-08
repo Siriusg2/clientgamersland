@@ -3,10 +3,10 @@
 import styles from "./Detail.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
-import { resetGameDetails, resetIstoUpdate } from "../../redux/actions";
+
 import { useEffect } from "react";
 import { deleteGame } from "../../redux/actions";
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading"
 import { setFormToUpdate } from "../../redux/actions";
 
@@ -14,7 +14,7 @@ import { setFormToUpdate } from "../../redux/actions";
 const Detail = () => {
   let game = useSelector((state)=> state.gameDetails)
   const dispatch = useDispatch()
- const history = useHistory()
+ const history  = useNavigate()
 
 
 // useEffect(()=>{
@@ -82,7 +82,7 @@ useEffect(()=>{
                 <button className={styles.buttonReset} onClick={()=>{
                   dispatch(deleteGame(game.id));
                
-                  history.push('/home');
+                  history('/home');
                 
                 } }>
                 Delete</button></div>

@@ -26,7 +26,7 @@ export const createGame = (game) => async (dispatch) => {
     if (typeof response.data === 'object') dispatch({ type: CREATE_GAME, payload: response.data })
     return response.data
   } catch (error) {
-    alert(error.message)
+    throw new Error(error.message)
   }
 }
 export const updateGame = (game) => async (dispatch) => {
@@ -34,9 +34,9 @@ export const updateGame = (game) => async (dispatch) => {
     const response = await axios.put(`/videogames/update/${game.id}`, game)
     return typeof response.data === 'object'
       ? dispatch({ type: UPDATE_GAME, payload: response.data })
-      : alert(response.data)
+      : console.log(response.data)
   } catch (error) {
-    alert(error.message)
+    throw new Error(error.message)
   }
 }
 export const deleteGame = (id) => async (dispatch) => {
@@ -47,7 +47,7 @@ export const deleteGame = (id) => async (dispatch) => {
       dispatch({ type: DELETE_GAME, payload: id })
     } else return response
   } catch (error) {
-    alert(error.message)
+    throw new Error(error.message)
   }
 }
 
@@ -57,9 +57,9 @@ export const getGameDetail = (id) => async (dispatch) => {
 
     return typeof response.data !== 'string'
       ? dispatch({ type: GET_GAME_DETAILS, payload: response.data })
-      : alert(response.data)
+      : console.log(response.data)
   } catch (error) {
-    alert(error.message)
+    throw new Error(error.message)
   }
 }
 export const resetGameDetails = () => ({
@@ -71,8 +71,8 @@ export const getGames = () => async (dispatch) => {
     const response = await axios.get('/videogames')
     dispatch({ type: GET_GAMES, payload: response.data })
   } catch (error) {
-    alert(error.message)
-    console.log(error)
+    throw new Error(error.message)
+   
   }
 }
 export const getGenres = () => async (dispatch) => {
@@ -80,7 +80,7 @@ export const getGenres = () => async (dispatch) => {
     const response = await axios.get('/genres')
     dispatch({ type: GET_GENRES, payload: response.data })
   } catch (error) {
-    alert(error.message)
+    throw new Error(error.message)
   }
 }
 export const getGamesByName = (word) => async (dispatch) => {
@@ -88,7 +88,7 @@ export const getGamesByName = (word) => async (dispatch) => {
     const response = await axios.get(`/videogames?name=${word}`)
     dispatch({ type: GET_GAMES_BY_NAME, payload: response.data })
   } catch (error) {
-    alert(error.message)
+    throw new Error(error.message)
   }
 }
 

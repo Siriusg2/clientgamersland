@@ -1,10 +1,8 @@
 /* eslint-disable react/react-in-jsx-scope */
 import './App.css'
-
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {  Route, Routes } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { useEffect } from 'react'
-
 import Navbar from './components/Navbar/Navbar'
 import { getGames, getGenres } from './redux/actions'
 import LandingPage from './components/LandingPage/LandingPage'
@@ -19,22 +17,21 @@ function App () {
   useEffect(() => {
     dispatch(getGames())
     dispatch(getGenres())
-  }, [])
+  }, [dispatch])
   return (
+     
     <div className="App">
-      <Router>
         <Navbar />
-
-        <Switch>
-          <Route exact path="/" component={LandingPage} />
-          <Route exact path="/home" component={Cards} />
-          <Route exact path="/detail/:id" component={Detail} />
-          <Route exact path="/create" component={Form} />
-          <Route exact path="/about" component={About} />
-          <Route path="*" component={NotFound} />
-        </Switch>
-      </Router>
+        <Routes>
+          <Route exact path="/" element={<LandingPage/>}/>
+          <Route exact path="/home" element={<Cards/>}/> 
+          <Route exact path="/detail/:id" element={<Detail/>}/>
+          <Route exact path="/create" element={<Form/>}/>
+          <Route exact path="/about" element={<About/>}/>
+          <Route path="*" element={<NotFound/>}/>
+        </Routes>
     </div>
+ 
   )
 }
 

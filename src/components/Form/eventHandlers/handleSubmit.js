@@ -1,4 +1,4 @@
-/* eslint-disable import/prefer-default-export */
+
 /* eslint-disable consistent-return */
 /* eslint-disable no-alert */
 /* eslint-disable no-undef */
@@ -25,7 +25,7 @@ export const handleSubmit = async (e, form, history, isToUpdate, dispatch) => {
     try {
       await dispatch(updateGame(form))
 
-      history.push('/home')
+      history('/home')
     } catch (error) {
       alert(error.message)
     }
