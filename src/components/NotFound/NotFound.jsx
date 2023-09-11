@@ -6,16 +6,16 @@ import styles from "..//NotFound/NotFound.module.css";
 
 const NotFound = () => {
   return (
-    
-      <div className={styles.container}>
-        <p className={styles.notfound}>GAME OVER</p>
-     
-        <NavLink to="/home" >
-          <button className={styles.button}>
-            Home</button>
-          </NavLink>
-        </div>
-    
+
+    <div className={styles.container}>
+      <p className={styles.notfound}>GAME OVER</p>
+
+      <NavLink to="/home" >
+        <button className={styles.button}>
+          Home</button>
+      </NavLink>
+    </div>
+
   );
 };
 

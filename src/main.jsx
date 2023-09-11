@@ -8,10 +8,11 @@ import App from './App'
 import store from './redux/store'
 
 
+
 const { VITE_API_URL_LOCAL, VITE_API_URL_DEPLOY } = import.meta.env
 
 axios.defaults.baseURL = VITE_API_URL_LOCAL || VITE_API_URL_DEPLOY
-console.log(axios.defaults.baseURL);
+
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <Provider store={store}>
