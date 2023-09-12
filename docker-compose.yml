@@ -1,0 +1,21 @@
+name: gamersland_react
+services:
+  client_react:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3001"
+    environment:
+      - VITE_API_URL_LOCAL=http://localhost:3000
+    networks:
+      - gamersland 
+
+networks: 
+  gamersland:
+    driver: bridge
+    external: true
+    
