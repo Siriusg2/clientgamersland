@@ -1,6 +1,7 @@
 name: gamersland
 services:
   gamersland_front:
+    container_name: gamersland_front
     restart: always
     build:
       context: .
