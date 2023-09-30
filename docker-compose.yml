@@ -1,6 +1,6 @@
-name: gamersland_react
+name: gamersland
 services:
-  client_react:
+  gamersland_front:
     restart: always
     build:
       context: .
