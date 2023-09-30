@@ -12,10 +12,10 @@ services:
     environment:
       - VITE_API_URL_LOCAL=http://localhost:3000
     networks:
-      - gamersland 
+      - cloudflared 
 
 networks: 
-  gamersland:
+  cloudflared:
     driver: bridge
     external: true
     
