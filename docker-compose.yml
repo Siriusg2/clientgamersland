@@ -10,8 +10,10 @@ services:
       - .:/app
     ports:
       - "3001:3001"
-    environment:
-      - VITE_API_URL_LOCAL=http://gamersland_api:3000
+    # environment:
+    #   - VITE_API_URL_LOCAL=http://gamersland_api:3000
+    env_file:
+      - .env
     networks:
       - cloudflared 
 
