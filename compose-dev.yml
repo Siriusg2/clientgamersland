@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  client:
+    container_name: multiverseland
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+    ports:
+      - "3001:3001"
+    networks:
+      - main
+
+networks:
+  main:
+    driver: bridge
+    external: true

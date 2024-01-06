@@ -1,7 +1,7 @@
-FROM oven/bun
-
+FROM node:latest
+RUN npm install -g pnpm
 COPY package*.json ./
-RUN bun install
+RUN pnmp install
 COPY . .
 EXPOSE 3001
 CMD ["bun", "run", "dev"]
