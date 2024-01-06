@@ -2,7 +2,7 @@ version: "3"
 
 services:
   client:
-    container_name: multiverseland
+    container_name: clientgamersland
     restart: always
     build:
       context: .
@@ -10,7 +10,7 @@ services:
     volumes:
       - .:/app
     ports:
-      - "3000:80"
+      - "3002:80"
     networks:
       - main
 
