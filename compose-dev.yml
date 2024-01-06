@@ -2,13 +2,13 @@ version: "3"
 
 services:
   client:
-    container_name: multiverseland
-    restart: always
+    container_name: clientgamersland
+
     build:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - .:/app
+      - ./src:/app/src
     ports:
       - "3001:3001"
     networks:
