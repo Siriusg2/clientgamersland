@@ -3,7 +3,7 @@
 import styles from "./Detail.module.css";
 
 import { useSelector, useDispatch } from "react-redux";
-
+import { resetGameDetails } from "../../redux/actions";
 import { useEffect } from "react";
 import { deleteGame } from "../../redux/actions";
 import { useNavigate } from "react-router-dom";
