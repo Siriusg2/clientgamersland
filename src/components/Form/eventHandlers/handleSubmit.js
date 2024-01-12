@@ -16,11 +16,10 @@ export const handleSubmit = async (e, form, history, isToUpdate, dispatch) => {
         alert(result);
       } else {
         alert(`Game ${form.name} was created successfully`);
-        history.push("/home");
+        history("/home");
       }
     } catch (error) {
       alert(error.message);
-      alert("handlesubmit");
     }
   } else {
     try {
@@ -29,7 +28,6 @@ export const handleSubmit = async (e, form, history, isToUpdate, dispatch) => {
       history("/home");
     } catch (error) {
       alert(error.message);
-      alert("handlesubmit2");
     }
   }
 };
